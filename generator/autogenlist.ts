@@ -508,7 +508,6 @@ const autoGenList: AutoGenConfig[] = [
         basePath: 'redisenterprise/resource-manager/Microsoft.Cache/RedisEnterprise',
         namespace: 'Microsoft.Cache',
         useNamespaceFromConfig: true,
-        disabledForAutogen: true,
         suffix: 'Enterprise',
     },
     {

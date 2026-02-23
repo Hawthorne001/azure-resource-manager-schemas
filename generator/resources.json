@@ -4516,6 +4516,82 @@
     "2024-04-01-preview",
     "2024-11-01"
   ],
+  "Microsoft.Cache/redisEnterprise": [
+    "2020-10-01-preview",
+    "2021-02-01-preview",
+    "2021-03-01",
+    "2021-08-01",
+    "2022-01-01",
+    "2022-11-01-preview",
+    "2023-03-01-preview",
+    "2023-07-01",
+    "2023-08-01-preview",
+    "2023-10-01-preview",
+    "2023-11-01",
+    "2024-02-01",
+    "2024-03-01-preview",
+    "2024-06-01-preview",
+    "2024-09-01-preview",
+    "2024-10-01",
+    "2025-04-01",
+    "2025-05-01-preview",
+    "2025-07-01",
+    "2025-08-01-preview"
+  ],
+  "Microsoft.Cache/redisEnterprise/databases": [
+    "2020-10-01-preview",
+    "2021-02-01-preview",
+    "2021-03-01",
+    "2021-08-01",
+    "2022-01-01",
+    "2022-11-01-preview",
+    "2023-03-01-preview",
+    "2023-07-01",
+    "2023-08-01-preview",
+    "2023-10-01-preview",
+    "2023-11-01",
+    "2024-02-01",
+    "2024-03-01-preview",
+    "2024-06-01-preview",
+    "2024-09-01-preview",
+    "2024-10-01",
+    "2025-04-01",
+    "2025-05-01-preview",
+    "2025-07-01",
+    "2025-08-01-preview"
+  ],
+  "Microsoft.Cache/redisEnterprise/databases/accessPolicyAssignments": [
+    "2024-09-01-preview",
+    "2025-04-01",
+    "2025-05-01-preview",
+    "2025-07-01",
+    "2025-08-01-preview"
+  ],
+  "Microsoft.Cache/redisEnterprise/migrations": [
+    "2025-08-01-preview"
+  ],
+  "Microsoft.Cache/redisEnterprise/privateEndpointConnections": [
+    "2020-10-01-preview",
+    "2021-02-01-preview",
+    "2021-03-01",
+    "2021-08-01",
+    "2022-01-01",
+    "2022-11-01-preview",
+    "2023-03-01-preview",
+    "2023-07-01",
+    "2023-08-01-preview",
+    "2023-10-01-preview",
+    "2023-11-01",
+    "2024-02-01",
+    "2024-03-01-preview",
+    "2024-06-01-preview",
+    "2024-09-01-preview",
+    "2024-10-01",
+    "2025-04-01",
+    "2025-05-01-preview",
+    "2025-07-01",
+    "2025-08-01-preview"
+  ],
   "Microsoft.Capacity/reservationOrders": [
     "2019-04-01",
     "2020-10-01-preview",
@@ -11133,16 +11209,22 @@
   "Microsoft.DurableTask/schedulers": [
     "2024-10-01-preview",
     "2025-04-01-preview",
-    "2025-11-01"
+    "2025-11-01",
+    "2026-02-01"
+  ],
+  "Microsoft.DurableTask/schedulers/privateEndpointConnections": [
+    "2026-02-01"
   ],
   "Microsoft.DurableTask/schedulers/retentionPolicies": [
     "2025-04-01-preview",
-    "2025-11-01"
+    "2025-11-01",
+    "2026-02-01"
   ],
   "Microsoft.DurableTask/schedulers/taskHubs": [
     "2024-10-01-preview",
     "2025-04-01-preview",
-    "2025-11-01"
+    "2025-11-01",
+    "2026-02-01"
   ],
   "Microsoft.Dynamics365FraudProtection/instances": [
     "2021-02-01-preview"
@@ -27176,11 +27258,13 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/firewalls/metrics": [
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/globalRulestacks": [
     "2022-08-29",
@@ -27193,7 +27277,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/globalRulestacks/certificates": [
     "2022-08-29",
@@ -27206,7 +27291,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/globalRulestacks/fqdnlists": [
     "2022-08-29",
@@ -27219,7 +27305,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/globalRulestacks/postRules": [
     "2022-08-29",
@@ -27232,7 +27319,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/globalRulestacks/preRules": [
     "2022-08-29",
@@ -27245,7 +27333,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/globalRulestacks/prefixlists": [
     "2022-08-29",
@@ -27258,7 +27347,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/localRulestacks": [
     "2022-08-29",
@@ -27271,7 +27361,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/localRulestacks/certificates": [
     "2022-08-29",
@@ -27284,7 +27375,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/localRulestacks/fqdnlists": [
     "2022-08-29",
@@ -27297,7 +27389,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/localRulestacks/localRules": [
     "2022-08-29",
@@ -27310,7 +27403,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "PaloAltoNetworks.Cloudngfw/localRulestacks/prefixlists": [
     "2022-08-29",
@@ -27323,7 +27417,8 @@
     "2025-02-06-preview",
     "2025-05-23",
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "Pinecone.VectorDb/organizations": [
     "2024-10-22-preview"
