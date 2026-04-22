@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2020-03-01/Microsoft.Devices.Provisioning.json#",
+  "id": "https://schema.management.azure.com/schemas/2020-09-01-preview/Microsoft.Devices.json#",
   "title": "Microsoft.Devices",
   "description": "Microsoft Devices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2020-03-01"
+            "2020-09-01-preview"
           ],
           "type": "string"
         },
@@ -17,12 +17,23 @@
           "description": "The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.",
           "type": "string"
         },
+        "identity": {
+          "description": "The managed identities for the IotDps instance.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ArmIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "location": {
           "description": "The resource location.",
           "type": "string"
         },
         "name": {
-          "description": "Name of provisioning service to create or update.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -83,8 +94,10 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -95,7 +108,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2020-03-01"
+            "2020-09-01-preview"
           ],
           "type": "string"
         },
@@ -103,21 +116,17 @@
           "description": "Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.",
           "type": "string"
         },
-        "isVerified": {
-          "description": "True indicates that the certificate will be created in verified state and proof of possession will not be required.",
+        "name": {
+          "description": "The resource name",
           "oneOf": [
             {
-              "type": "boolean"
+              "maxLength": 256,
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
         },
         "type": {
           "enum": [
@@ -138,12 +147,12 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2020-03-01"
+            "2020-09-01-preview"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -174,8 +183,85 @@
     }
   },
   "definitions": {
+    "ArmIdentity": {
+      "properties": {
+        "identityType": {
+          "description": "Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.",
+          "type": "string"
+        },
+        "userAssignedIdentities": {
+          "description": "The set of UserAssigned identities associated with the IoT DPS resource.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/definitions/ArmUserIdentity"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ArmIdentityUserAssignedIdentities": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ArmUserIdentity"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "ArmUserIdentity": {
+      "properties": {},
+      "type": "object"
+    },
+    "EncryptionKeyIdentity": {
+      "properties": {
+        "userAssignedIdentity": {
+          "description": "The user assigned identity.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EncryptionPropertiesDescription": {
+      "properties": {
+        "identity": {
+          "description": "The identity used to access the encryption key in KeyVault.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EncryptionKeyIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keySource": {
+          "description": "The source of the encryption key. Typically, Microsoft.KeyVault",
+          "type": "string"
+        },
+        "keyVaultProperties": {
+          "description": "The properties of the encryption key configured in KeyVault.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/KeyVaultKeyProperties"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "IotDpsPropertiesDescription": {
-      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -201,6 +287,17 @@
                 "$ref": "#/definitions/SharedAccessSignatureAuthorizationRuleAccessRightsDescription"
               },
               "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "encryption": {
+          "description": "The encryption properties for the IoT DPS instance.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EncryptionPropertiesDescription"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -297,7 +394,6 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
-      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -328,7 +424,6 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
-      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
           "description": "weight to apply for a given iot h.",
@@ -368,7 +463,6 @@
       "type": "object"
     },
     "IpFilterRule": {
-      "description": "The IP filter rules for a provisioning Service.",
       "properties": {
         "action": {
           "description": "The desired action for requests captured by this rule.",
@@ -411,19 +505,26 @@
         }
       },
       "required": [
-        "filterName",
         "action",
+        "filterName",
         "ipMask"
       ],
       "type": "object"
     },
+    "KeyVaultKeyProperties": {
+      "properties": {
+        "keyIdentifier": {
+          "description": "The identifier of the key.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "PrivateEndpoint": {
-      "description": "The private endpoint property of a private endpoint connection",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
-      "description": "The private endpoint connection of a provisioning service",
       "properties": {
         "properties": {
           "description": "The properties of a private endpoint connection",
@@ -443,7 +544,6 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "The properties of a private endpoint connection",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint property of a private endpoint connection",
@@ -474,7 +574,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "The current state of a private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "Actions required for a private endpoint connection",
@@ -503,13 +602,19 @@
         }
       },
       "required": [
-        "status",
-        "description"
+        "description",
+        "status"
       ],
       "type": "object"
     },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
-      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -550,11 +655,11 @@
       "type": "object"
     },
     "provisioningServices_certificates_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/certificates",
+      "description": "certificates",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2020-03-01"
+            "2020-09-01-preview"
           ],
           "type": "string"
         },
@@ -562,21 +667,17 @@
           "description": "Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.",
           "type": "string"
         },
-        "isVerified": {
-          "description": "True indicates that the certificate will be created in verified state and proof of possession will not be required.",
+        "name": {
+          "description": "The resource name",
           "oneOf": [
             {
-              "type": "boolean"
+              "maxLength": 256,
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
         },
         "type": {
           "enum": [
@@ -593,16 +694,16 @@
       "type": "object"
     },
     "provisioningServices_privateEndpointConnections_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2020-03-01"
+            "2020-09-01-preview"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {

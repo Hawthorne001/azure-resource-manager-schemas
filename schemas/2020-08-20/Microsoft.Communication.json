@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the CommunicationService resource.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -75,7 +75,6 @@
   },
   "definitions": {
     "CommunicationServiceProperties": {
-      "description": "A class that describes the properties of the CommunicationService.",
       "properties": {
         "dataLocation": {
           "description": "The location where the communication service stores its data at rest.",
@@ -85,6 +84,13 @@
       "required": [
         "dataLocation"
       ],
+      "type": "object"
+    },
+    "TaggedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
       "type": "object"
     }
   }

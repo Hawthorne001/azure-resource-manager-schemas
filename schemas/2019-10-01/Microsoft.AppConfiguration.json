@@ -29,7 +29,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the configuration store.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 50,
@@ -87,7 +87,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "properties",
         "apiVersion",
         "type"
@@ -97,7 +99,6 @@
   },
   "definitions": {
     "ConfigurationStoreProperties": {
-      "description": "The properties of a configuration store.",
       "properties": {},
       "type": "object"
     },
@@ -138,8 +139,21 @@
       },
       "type": "object"
     },
+    "ResourceIdentityUserAssignedIdentities": {
+      "additionalProperties": {
+        "$ref": "#/definitions/UserIdentity"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "Sku": {
-      "description": "Describes a configuration store SKU.",
       "properties": {
         "name": {
           "description": "The SKU name of the configuration store.",

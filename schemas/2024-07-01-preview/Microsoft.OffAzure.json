@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -44,10 +44,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/hypervSites_hosts_childResource"
+                "$ref": "#/definitions/hypervSites_clusters_childResource"
               },
               {
-                "$ref": "#/definitions/hypervSites_clusters_childResource"
+                "$ref": "#/definitions/hypervSites_hosts_childResource"
               }
             ]
           },
@@ -76,6 +76,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -93,7 +94,7 @@
           "type": "string"
         },
         "name": {
-          "description": " Cluster ARM name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -140,7 +141,7 @@
           "type": "string"
         },
         "name": {
-          "description": " Host name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -191,7 +192,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -236,6 +237,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -257,7 +259,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -283,13 +285,13 @@
           "items": {
             "oneOf": [
               {
+                "$ref": "#/definitions/masterSites_privateEndpointConnections_childResource"
+              },
+              {
                 "$ref": "#/definitions/masterSites_sqlSites_childResource"
               },
               {
                 "$ref": "#/definitions/masterSites_webAppSites_childResource"
-              },
-              {
-                "$ref": "#/definitions/masterSites_privateEndpointConnections_childResource"
               }
             ]
           },
@@ -318,6 +320,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -335,7 +338,7 @@
           "type": "string"
         },
         "name": {
-          "description": " Private link resource name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -382,7 +385,7 @@
           "type": "string"
         },
         "name": {
-          "description": "SQL site name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -439,7 +442,7 @@
           "type": "string"
         },
         "name": {
-          "description": "SQL Discovery site data source name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -486,7 +489,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Web app site name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -543,7 +546,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Data Source ARM name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -594,7 +597,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -639,6 +642,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -660,7 +664,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -715,6 +719,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -732,7 +737,7 @@
           "type": "string"
         },
         "name": {
-          "description": " VCenters name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -772,7 +777,6 @@
   },
   "definitions": {
     "DiscoverySiteDataSourceProperties": {
-      "description": "Discovery site data source properties class.",
       "properties": {
         "discoverySiteId": {
           "description": "Gets or sets the discovery site Id.",
@@ -782,7 +786,6 @@
       "type": "object"
     },
     "HypervClusterProperties": {
-      "description": "The properties of Hyperv Cluster",
       "properties": {
         "fqdn": {
           "description": "Gets or sets the FQDN/IPAddress of the Hyper-V cluster.",
@@ -830,7 +833,6 @@
       "type": "object"
     },
     "HypervHostProperties": {
-      "description": "The properties of Hyperv Host",
       "properties": {
         "fqdn": {
           "description": "Gets or sets the FQDN/IPAddress of the Hyper-V host.",
@@ -864,7 +866,6 @@
       "type": "object"
     },
     "ImportSiteProperties": {
-      "description": "The properties of ImportSiteResource",
       "properties": {
         "discoverySolutionId": {
           "description": "Gets or sets the ARM ID of migration hub solution for SDS.",
@@ -894,7 +895,6 @@
       "type": "object"
     },
     "MasterSiteProperties": {
-      "description": "Class for site properties.",
       "properties": {
         "allowMultipleSites": {
           "description": "Gets or sets a value indicating whether multiple sites per site type are allowed.",
@@ -945,7 +945,6 @@
       "type": "object"
     },
     "PrivateEndpointConnectionPropertiesV2": {
-      "description": "PrivateEndpointConnectionProperties V2",
       "properties": {
         "privateLinkServiceConnectionState": {
           "description": "private endpoints connection state",
@@ -962,7 +961,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "Service Connection State",
       "properties": {
         "actionsRequired": {
           "description": "actions required",
@@ -993,7 +991,6 @@
       "type": "object"
     },
     "SiteAgentProperties": {
-      "description": "Class for site agent properties.",
       "properties": {
         "keyVaultId": {
           "description": "Gets or sets the key vault ARM Id.",
@@ -1007,7 +1004,6 @@
       "type": "object"
     },
     "SiteApplianceProperties": {
-      "description": "Class for site appliance properties.",
       "properties": {
         "agentDetails": {
           "description": "Gets or sets the on-premises agent details.",
@@ -1025,7 +1021,7 @@
           "type": "string"
         },
         "servicePrincipalIdentityDetails": {
-          "description": " Gets or sets the service principal identity details used by agent for  communication              to the service.  ",
+          "description": "Gets or sets the service principal identity details used by agent for  communication              to the service.",
           "oneOf": [
             {
               "$ref": "#/definitions/SiteSpnProperties"
@@ -1039,7 +1035,6 @@
       "type": "object"
     },
     "SiteProperties": {
-      "description": "The properties of VMwareSiteResource",
       "properties": {
         "agentDetails": {
           "description": "Gets or sets the on-premises agent details.",
@@ -1124,7 +1119,6 @@
       "type": "object"
     },
     "SiteSpnProperties": {
-      "description": "Class for site properties.",
       "properties": {
         "aadAuthority": {
           "description": "Gets or sets the AAD Authority URL which was used to request the token for the service principal.",
@@ -1158,7 +1152,6 @@
       "type": "object"
     },
     "SitesProperties": {
-      "description": "The properties of SiteResource",
       "properties": {
         "agentDetails": {
           "description": "Gets or sets the on-premises agent details.",
@@ -1223,7 +1216,6 @@
       "type": "object"
     },
     "SqlDiscoverySiteDataSourceProperties": {
-      "description": "Discovery site data source properties class.",
       "properties": {
         "discoverySiteId": {
           "description": "Gets or sets the discovery site Id.",
@@ -1233,7 +1225,6 @@
       "type": "object"
     },
     "SqlSiteProperties": {
-      "description": "Class for SQL site properties.",
       "properties": {
         "discoveryScenario": {
           "description": "Gets or sets the discovery scenario.",
@@ -1267,8 +1258,14 @@
       },
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "VcenterProperties": {
-      "description": "The properties of VMwareSiteResource",
       "properties": {
         "fqdn": {
           "description": "Gets or sets the FQDN/IPAddress of the vCenter.",
@@ -1310,7 +1307,6 @@
       "type": "object"
     },
     "WebAppSiteProperties": {
-      "description": "Class for Web app site properties.",
       "properties": {
         "discoveryScenario": {
           "description": "Gets or sets the discovery scenario.",
@@ -1345,7 +1341,7 @@
       "type": "object"
     },
     "hypervSites_clusters_childResource": {
-      "description": "Microsoft.OffAzure/hypervSites/clusters",
+      "description": "clusters",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1354,7 +1350,7 @@
           "type": "string"
         },
         "name": {
-          "description": " Cluster ARM name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1392,7 +1388,7 @@
       "type": "object"
     },
     "hypervSites_hosts_childResource": {
-      "description": "Microsoft.OffAzure/hypervSites/hosts",
+      "description": "hosts",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1401,7 +1397,7 @@
           "type": "string"
         },
         "name": {
-          "description": " Host name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1439,7 +1435,7 @@
       "type": "object"
     },
     "masterSites_privateEndpointConnections_childResource": {
-      "description": "Microsoft.OffAzure/masterSites/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1448,7 +1444,7 @@
           "type": "string"
         },
         "name": {
-          "description": " Private link resource name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1486,7 +1482,7 @@
       "type": "object"
     },
     "masterSites_sqlSites_childResource": {
-      "description": "Microsoft.OffAzure/masterSites/sqlSites",
+      "description": "sqlSites",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1495,7 +1491,7 @@
           "type": "string"
         },
         "name": {
-          "description": "SQL site name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1533,7 +1529,7 @@
       "type": "object"
     },
     "masterSites_sqlSites_discoverySiteDataSources_childResource": {
-      "description": "Microsoft.OffAzure/masterSites/sqlSites/discoverySiteDataSources",
+      "description": "discoverySiteDataSources",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1542,7 +1538,7 @@
           "type": "string"
         },
         "name": {
-          "description": "SQL Discovery site data source name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1580,7 +1576,7 @@
       "type": "object"
     },
     "masterSites_webAppSites_childResource": {
-      "description": "Microsoft.OffAzure/masterSites/webAppSites",
+      "description": "webAppSites",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1589,7 +1585,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Web app site name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1627,7 +1623,7 @@
       "type": "object"
     },
     "masterSites_webAppSites_discoverySiteDataSources_childResource": {
-      "description": "Microsoft.OffAzure/masterSites/webAppSites/discoverySiteDataSources",
+      "description": "discoverySiteDataSources",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1636,7 +1632,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Data Source ARM name.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",
@@ -1674,7 +1670,7 @@
       "type": "object"
     },
     "vmwareSites_vcenters_childResource": {
-      "description": "Microsoft.OffAzure/vmwareSites/vcenters",
+      "description": "vcenters",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -1683,7 +1679,7 @@
           "type": "string"
         },
         "name": {
-          "description": " VCenters name",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9-]{3,24}$",

@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the CommunicationService resource.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -65,6 +65,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -86,7 +87,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the EmailService resource.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -143,6 +144,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -164,10 +166,17 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Domains resource.",
-          "maxLength": 253,
-          "minLength": 1,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a Domains resource.",
@@ -213,6 +222,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -230,10 +240,17 @@
           "type": "string"
         },
         "name": {
-          "description": "The valid sender Username.",
-          "maxLength": 253,
-          "minLength": 1,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a SenderUsername resource.",
@@ -264,7 +281,6 @@
   },
   "definitions": {
     "CommunicationServiceProperties": {
-      "description": "A class that describes the properties of the CommunicationService.",
       "properties": {
         "dataLocation": {
           "description": "The location where the communication service stores its data at rest.",
@@ -291,7 +307,6 @@
       "type": "object"
     },
     "DomainProperties": {
-      "description": "A class that describes the properties of a Domains resource.",
       "properties": {
         "domainManagement": {
           "description": "Describes how a Domains resource is being managed.",
@@ -331,7 +346,6 @@
       "type": "object"
     },
     "EmailServiceProperties": {
-      "description": "A class that describes the properties of the EmailService.",
       "properties": {
         "dataLocation": {
           "description": "The location where the email service stores its data at rest.",
@@ -344,7 +358,6 @@
       "type": "object"
     },
     "SenderUsernameProperties": {
-      "description": "A class that describes the properties of a SenderUsername resource.",
       "properties": {
         "displayName": {
           "description": "The display name for the senderUsername.",
@@ -360,8 +373,15 @@
       ],
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "emailServices_domains_childResource": {
-      "description": "Microsoft.Communication/emailServices/domains",
+      "description": "domains",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -374,10 +394,17 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Domains resource.",
-          "maxLength": 253,
-          "minLength": 1,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a Domains resource.",
@@ -413,6 +440,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -421,7 +449,7 @@
       "type": "object"
     },
     "emailServices_domains_senderUsernames_childResource": {
-      "description": "Microsoft.Communication/emailServices/domains/senderUsernames",
+      "description": "senderUsernames",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -430,10 +458,17 @@
           "type": "string"
         },
         "name": {
-          "description": "The valid sender Username.",
-          "maxLength": 253,
-          "minLength": 1,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "The properties of a SenderUsername resource.",

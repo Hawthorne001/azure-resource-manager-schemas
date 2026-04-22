@@ -22,7 +22,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -40,10 +40,10 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/HyperVSites_hosts_childResource"
+                "$ref": "#/definitions/HyperVSites_clusters_childResource"
               },
               {
-                "$ref": "#/definitions/HyperVSites_clusters_childResource"
+                "$ref": "#/definitions/HyperVSites_hosts_childResource"
               }
             ]
           },
@@ -89,7 +89,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Cluster ARM name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -128,7 +128,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Host ARM name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -175,7 +175,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -214,6 +214,33 @@
       ],
       "type": "object"
     },
+    "masterSites_privateEndpointConnections": {
+      "description": "Microsoft.OffAzure/masterSites/privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.OffAzure/masterSites/privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "VMwareSites": {
       "description": "Microsoft.OffAzure/VMwareSites",
       "properties": {
@@ -232,7 +259,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Site name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -296,7 +323,7 @@
           "type": "string"
         },
         "name": {
-          "description": "VCenter ARM name.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -324,38 +351,10 @@
         "type"
       ],
       "type": "object"
-    },
-    "masterSites_privateEndpointConnections": {
-      "description": "Microsoft.OffAzure/masterSites/privateEndpointConnections",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2020-07-07"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "Private link resource name.",
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.OffAzure/masterSites/privateEndpointConnections"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
     }
   },
   "definitions": {
     "HyperVClusterProperties": {
-      "description": "Class for cluster properties.",
       "properties": {
         "fqdn": {
           "description": "FQDN/IPAddress of the Hyper-V cluster.",
@@ -383,7 +382,6 @@
       "type": "object"
     },
     "HyperVHostProperties": {
-      "description": "Class for host properties.",
       "properties": {
         "fqdn": {
           "description": "FQDN/IPAddress of the Hyper-V host.",
@@ -396,86 +394,14 @@
       },
       "type": "object"
     },
-    "HyperVSites_clusters_childResource": {
-      "description": "Microsoft.OffAzure/HyperVSites/clusters",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2020-07-07"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "Cluster ARM name.",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Nested properties of the cluster.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/HyperVClusterProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "clusters"
-          ],
-          "type": "string"
-        }
+    "HyperVSiteTags": {
+      "additionalProperties": {
+        "type": "string"
       },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    },
-    "HyperVSites_hosts_childResource": {
-      "description": "Microsoft.OffAzure/HyperVSites/hosts",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2020-07-07"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "Host ARM name.",
-          "type": "string"
-        },
-        "properties": {
-          "description": "Nested properties.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/HyperVHostProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "hosts"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
+      "properties": {},
       "type": "object"
     },
     "MasterSiteProperties": {
-      "description": "Class for site properties.",
       "properties": {
         "allowMultipleSites": {
           "description": "Value indicating whether multiple sites per site type are allowed.",
@@ -526,7 +452,6 @@
       "type": "object"
     },
     "SiteAgentProperties": {
-      "description": "Class for site agent properties.",
       "properties": {
         "keyVaultId": {
           "description": "Key vault ARM Id.",
@@ -540,7 +465,6 @@
       "type": "object"
     },
     "SiteProperties": {
-      "description": "Class for site properties.",
       "properties": {
         "agentDetails": {
           "description": "On-premises agent details.",
@@ -576,7 +500,6 @@
       "type": "object"
     },
     "SiteSpnProperties": {
-      "description": "Class for site properties.",
       "properties": {
         "aadAuthority": {
           "description": "AAD Authority URL which was used to request the token for the service principal.",
@@ -606,7 +529,6 @@
       "type": "object"
     },
     "VCenterProperties": {
-      "description": "Class for vCenter properties.",
       "properties": {
         "fqdn": {
           "description": "FQDN/IPAddress of the vCenter.",
@@ -623,8 +545,15 @@
       },
       "type": "object"
     },
-    "VMwareSites_vCenters_childResource": {
-      "description": "Microsoft.OffAzure/VMwareSites/vCenters",
+    "VMwareSiteTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "HyperVSites_clusters_childResource": {
+      "description": "clusters",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -633,7 +562,112 @@
           "type": "string"
         },
         "name": {
-          "description": "VCenter ARM name.",
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Nested properties of the cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HyperVClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "clusters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "HyperVSites_hosts_childResource": {
+      "description": "hosts",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Nested properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HyperVHostProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "hosts"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "masterSites_privateEndpointConnections_childResource": {
+      "description": "privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "privateEndpointConnections"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "VMwareSites_vCenters_childResource": {
+      "description": "vCenters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-07-07"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -657,33 +691,6 @@
       "required": [
         "name",
         "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    },
-    "masterSites_privateEndpointConnections_childResource": {
-      "description": "Microsoft.OffAzure/masterSites/privateEndpointConnections",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2020-07-07"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "Private link resource name.",
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "privateEndpointConnections"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
         "apiVersion",
         "type"
       ],

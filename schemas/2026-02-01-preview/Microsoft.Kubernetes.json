@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.Kubernetes.json#",
+  "id": "https://schema.management.azure.com/schemas/2026-02-01-preview/Microsoft.Kubernetes.json#",
   "title": "Microsoft.Kubernetes",
   "description": "Microsoft Kubernetes Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2024-01-01"
+            "2026-02-01-preview"
           ],
           "type": "string"
         },
@@ -29,7 +29,9 @@
           "oneOf": [
             {
               "enum": [
-                "ProvisionedCluster"
+                "ProvisionedCluster",
+                "AWS",
+                "GCP"
               ],
               "type": "string"
             },
@@ -125,6 +127,10 @@
       },
       "type": "object"
     },
+    "AgentError": {
+      "properties": {},
+      "type": "object"
+    },
     "ArcAgentProfile": {
       "properties": {
         "agentAutoUpgrade": {
@@ -142,11 +148,92 @@
             }
           ]
         },
+        "agentErrors": {
+          "description": "List of arc agentry and system components errors on the cluster resource.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/AgentError"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "desiredAgentVersion": {
           "description": "Version of the Arc agents to be installed on the cluster resource",
           "type": "string"
+        },
+        "systemComponents": {
+          "description": "List of system extensions that are installed on the cluster resource.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/SystemComponent"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
+      "type": "object"
+    },
+    "ArcAgentryConfigurations": {
+      "properties": {
+        "feature": {
+          "description": "Specifies the name of the feature for the configuration setting.",
+          "type": "string"
+        },
+        "protectedSettings": {
+          "description": "The configuration settings for the feature that contain any sensitive or secret information.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "settings": {
+          "description": "The configuration settings for the feature that do not contain any sensitive or secret information.",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ArcAgentryConfigurationsProtectedSettings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "ArcAgentryConfigurationsSettings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
       "type": "object"
     },
     "ConnectedClusterIdentity": {
@@ -200,6 +287,20 @@
             }
           ]
         },
+        "arcAgentryConfigurations": {
+          "description": "Configuration settings for customizing the behavior of the connected cluster.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/ArcAgentryConfigurations"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "azureHybridBenefit": {
           "description": "Indicates whether Azure Hybrid Benefit is opted in",
           "oneOf": [
@@ -224,12 +325,34 @@
           "description": "The Kubernetes distribution version on this connected cluster.",
           "type": "string"
         },
+        "gateway": {
+          "description": "Details of the gateway used by the Arc router for connectivity.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Gateway"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "infrastructure": {
           "description": "The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.",
           "type": "string"
         },
+        "oidcIssuerProfile": {
+          "description": "Open ID Connect (OIDC) Issuer Profile for the connected cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OidcIssuerProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "privateLinkScopeResourceId": {
-          "description": "The resource id of the private link scope this connected cluster is assigned to, if any.",
+          "description": "This is populated only if privateLinkState is enabled. The resource id of the private link scope this connected cluster is assigned to, if any.",
           "type": "string"
         },
         "privateLinkState": {
@@ -266,11 +389,114 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "securityProfile": {
+          "description": "Security profile for the connected cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityProfile"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
         "agentPublicKeyCertificate"
       ],
+      "type": "object"
+    },
+    "Gateway": {
+      "properties": {
+        "enabled": {
+          "description": "Indicates whether the gateway for arc router connectivity is enabled.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "OidcIssuerProfile": {
+      "properties": {
+        "enabled": {
+          "description": "Whether to enable oidc issuer for workload identity integration.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "selfHostedIssuerUrl": {
+          "description": "The issuer url for public cloud clusters - AKS, EKS, GKE - used for the workload identity feature.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SecurityProfile": {
+      "properties": {
+        "workloadIdentity": {
+          "description": "The workload identity feature webhook.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityProfileWorkloadIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SecurityProfileWorkloadIdentity": {
+      "properties": {
+        "enabled": {
+          "description": "Whether to enable or disable the workload identity Webhook",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "SystemComponent": {
+      "properties": {
+        "majorVersion": {
+          "description": "Major Version of the system extension that is currently installed on the cluster resource.",
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "description": "Type of the system extension",
+          "type": "string"
+        },
+        "userSpecifiedVersion": {
+          "description": "Version of the system extension to be installed on the cluster resource.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "TrackedResourceTags": {

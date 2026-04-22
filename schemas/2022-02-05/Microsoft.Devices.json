@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2022-12-12/Microsoft.Devices.Provisioning.json#",
+  "id": "https://schema.management.azure.com/schemas/2022-02-05/Microsoft.Devices.json#",
   "title": "Microsoft.Devices",
   "description": "Microsoft Devices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2022-12-12"
+            "2022-02-05"
           ],
           "type": "string"
         },
@@ -22,7 +22,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of provisioning service to create or update.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -35,10 +35,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "resourcegroup": {
-          "description": "The resource group of the resource.",
-          "type": "string"
         },
         "resources": {
           "items": {
@@ -64,10 +60,6 @@
             }
           ]
         },
-        "subscriptionid": {
-          "description": "The subscription id of the resource.",
-          "type": "string"
-        },
         "tags": {
           "description": "The resource tags.",
           "oneOf": [
@@ -91,8 +83,10 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -103,14 +97,21 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2022-12-12"
+            "2022-02-05"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "properties of a certificate",
@@ -143,12 +144,12 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2022-12-12"
+            "2022-02-05"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -180,10 +181,15 @@
   },
   "definitions": {
     "CertificateProperties": {
-      "description": "The description of an X509 CA Certificate.",
       "properties": {
         "certificate": {
-          "description": "base-64 representation of X509 certificate .cer file or just .pem file content."
+          "description": "base-64 representation of X509 certificate .cer file or just .pem file content.",
+          "oneOf": [
+            {},
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "isVerified": {
           "description": "Determines whether certificate has been verified.",
@@ -200,7 +206,6 @@
       "type": "object"
     },
     "IotDpsPropertiesDescription": {
-      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -271,10 +276,6 @@
             }
           ]
         },
-        "portalOperationsHostName": {
-          "description": "Portal endpoint to enable CORS for this provisioning service.",
-          "type": "string"
-        },
         "privateEndpointConnections": {
           "description": "Private endpoint connections created on this IotHub",
           "oneOf": [
@@ -337,7 +338,6 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
-      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -368,7 +368,6 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
-      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
           "description": "weight to apply for a given iot h.",
@@ -408,7 +407,6 @@
       "type": "object"
     },
     "IpFilterRule": {
-      "description": "The IP filter rules for a provisioning Service.",
       "properties": {
         "action": {
           "description": "The desired action for requests captured by this rule.",
@@ -451,19 +449,17 @@
         }
       },
       "required": [
-        "filterName",
         "action",
+        "filterName",
         "ipMask"
       ],
       "type": "object"
     },
     "PrivateEndpoint": {
-      "description": "The private endpoint property of a private endpoint connection",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
-      "description": "The private endpoint connection of a provisioning service",
       "properties": {
         "properties": {
           "description": "The properties of a private endpoint connection",
@@ -483,7 +479,6 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "The properties of a private endpoint connection",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint property of a private endpoint connection",
@@ -514,7 +509,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "The current state of a private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "Actions required for a private endpoint connection",
@@ -543,13 +537,19 @@
         }
       },
       "required": [
-        "status",
-        "description"
+        "description",
+        "status"
       ],
       "type": "object"
     },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
-      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -590,18 +590,25 @@
       "type": "object"
     },
     "provisioningServices_certificates_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/certificates",
+      "description": "certificates",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2022-12-12"
+            "2022-02-05"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "properties": {
           "description": "properties of a certificate",
@@ -630,16 +637,16 @@
       "type": "object"
     },
     "provisioningServices_privateEndpointConnections_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2022-12-12"
+            "2022-02-05"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
