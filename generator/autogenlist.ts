@@ -34,7 +34,7 @@ const csharpGeneratorProviders: CsharpGeneratorConfig[] = [
     { namespace: 'Microsoft.Addons', enabled: false },
     { namespace: 'Microsoft.ADHybridHealthService', enabled: false },
     { namespace: 'Microsoft.Advisor', enabled: false },
-    { namespace: 'Microsoft.AgFoodPlatform', enabled: false },
+    { namespace: 'Microsoft.AgFoodPlatform', enabled: true },
     { namespace: 'Microsoft.AlertsManagement', enabled: false },
     { namespace: 'Microsoft.AnalysisServices', enabled: true },
     { namespace: 'Microsoft.ApiManagement', enabled: false },
@@ -132,10 +132,10 @@ const csharpGeneratorProviders: CsharpGeneratorConfig[] = [
     { namespace: 'Microsoft.MachineLearningServices', enabled: false },
     { namespace: 'Microsoft.Maintenance', enabled: false },
     { namespace: 'Microsoft.ManagedNetwork', enabled: false },
-    { namespace: 'Microsoft.ManagedServices', enabled: false },
+    { namespace: 'Microsoft.ManagedServices', enabled: true },
     { namespace: 'Microsoft.Management', enabled: false },
     { namespace: 'Microsoft.ManagementPartner', enabled: false },
-    { namespace: 'Microsoft.Maps', enabled: false },
+    { namespace: 'Microsoft.Maps', enabled: true },
     { namespace: 'Microsoft.Marketplace', enabled: false },
     { namespace: 'Microsoft.Media', enabled: false },
     { namespace: 'Microsoft.Migrate', enabled: false },
@@ -284,6 +284,16 @@ const disabledProviders: AutoGenConfig[] = [
         basePath: 'web/resource-manager/Microsoft.Web/AppService',
         useNamespaceFromConfig: true,
         namespace: 'Microsoft.Web',
+        disabledForAutogen: true,
+    },
+    {
+        //Disabled until errors are fixed
+        //Ref '../2020-03-01-preview/componentLinkedStorageAccounts_API.json#/definitions/ErrorResponseLinkedStorage' is not referencing a valid location
+        basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
+        namespace: 'Microsoft.Insights',
+        suffix: 'Application',
+        useNamespaceFromConfig: true,
+        postProcessor: insightsApplicationPostProcessor,
         disabledForAutogen: true,
     },
 ];
@@ -1555,13 +1565,6 @@ const autoGenList: AutoGenConfig[] = [
                 scopes: ScopeType.Extension,
             },
         ],
-    },
-    {
-        basePath: 'applicationinsights/resource-manager/Microsoft.Insights/ApplicationInsights',
-        namespace: 'Microsoft.Insights',
-        suffix: 'Application',
-        useNamespaceFromConfig: true,
-        postProcessor: insightsApplicationPostProcessor,
     },
     {
         basePath: 'quantum/resource-manager',
