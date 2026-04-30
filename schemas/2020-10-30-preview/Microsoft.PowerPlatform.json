@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the account.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -55,6 +55,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -105,7 +106,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the EnterprisePolicy.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -152,6 +153,8 @@
         }
       },
       "required": [
+        "kind",
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -169,7 +172,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -201,7 +204,6 @@
   },
   "definitions": {
     "AccountProperties": {
-      "description": "The properties that define configuration for the account.",
       "properties": {
         "description": {
           "description": "The description of the account.",
@@ -211,7 +213,6 @@
       "type": "object"
     },
     "EnterprisePolicyIdentity": {
-      "description": "The identity of the EnterprisePolicy.",
       "properties": {
         "type": {
           "description": "The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.",
@@ -232,7 +233,6 @@
       "type": "object"
     },
     "KeyProperties": {
-      "description": "Url and version of the KeyVault Secret",
       "properties": {
         "name": {
           "description": "The identifier of the key vault key used to encrypt data.",
@@ -246,7 +246,6 @@
       "type": "object"
     },
     "KeyVaultProperties": {
-      "description": "Settings concerning key vault encryption for a configuration store.",
       "properties": {
         "id": {
           "description": "Uri of KeyVault",
@@ -267,12 +266,10 @@
       "type": "object"
     },
     "PrivateEndpoint": {
-      "description": "The Private Endpoint resource.",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "Properties of the PrivateEndpointConnectProperties.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private end point.",
@@ -303,7 +300,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "A collection of information about the state of the connection between service consumer and provider.",
       "properties": {
         "actionsRequired": {
           "description": "A message indicating if changes on the service provider require any updates on the consumer.",
@@ -333,7 +329,6 @@
       "type": "object"
     },
     "Properties": {
-      "description": "The properties that define configuration for the enterprise policy.",
       "properties": {
         "encryption": {
           "description": "The encryption settings for a configuration store.",
@@ -389,7 +384,6 @@
       "type": "object"
     },
     "PropertiesEncryption": {
-      "description": "The encryption settings for a configuration store.",
       "properties": {
         "keyVault": {
           "description": "Key vault properties.",
@@ -422,7 +416,6 @@
       "type": "object"
     },
     "PropertiesLockbox": {
-      "description": "Settings concerning lockbox.",
       "properties": {
         "state": {
           "description": "lockbox configuration",
@@ -444,7 +437,6 @@
       "type": "object"
     },
     "PropertiesNetworkInjection": {
-      "description": "Settings concerning network injection.",
       "properties": {
         "virtualNetworks": {
           "description": "Network injection configuration",
@@ -464,7 +456,6 @@
       "type": "object"
     },
     "SubnetProperties": {
-      "description": "Properties of a subnet.",
       "properties": {
         "name": {
           "description": "Subnet name.",
@@ -473,8 +464,14 @@
       },
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "VirtualNetworkProperties": {
-      "description": "Settings concerning the virtual network.",
       "properties": {
         "id": {
           "description": "Uri of the virtual network.",
@@ -495,7 +492,7 @@
       "type": "object"
     },
     "enterprisePolicies_privateEndpointConnections_childResource": {
-      "description": "Microsoft.PowerPlatform/enterprisePolicies/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -504,7 +501,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {

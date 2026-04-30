@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2025-02-01-preview/Microsoft.Devices.Provisioning.json#",
+  "id": "https://schema.management.azure.com/schemas/2021-10-15/Microsoft.Devices.json#",
   "title": "Microsoft.Devices",
   "description": "Microsoft Devices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-02-01-preview"
+            "2021-10-15"
           ],
           "type": "string"
         },
@@ -17,23 +17,12 @@
           "description": "The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.",
           "type": "string"
         },
-        "identity": {
-          "description": "The managed service identities assigned to this resource.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/ManagedServiceIdentity"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "The resource location.",
           "type": "string"
         },
         "name": {
-          "description": "Name of the provisioning service to retrieve.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -46,10 +35,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "resourcegroup": {
-          "description": "The resource group of the resource.",
-          "type": "string"
         },
         "resources": {
           "items": {
@@ -75,12 +60,8 @@
             }
           ]
         },
-        "subscriptionid": {
-          "description": "The subscription id of the resource.",
-          "type": "string"
-        },
         "tags": {
-          "description": "Resource tags.",
+          "description": "The resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -102,8 +83,10 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -114,19 +97,31 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-02-01-preview"
+            "2021-10-15"
           ],
           "type": "string"
         },
-        "name": {
-          "description": "Name of the certificate to retrieve.",
+        "certificate": {
+          "description": "Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.",
           "type": "string"
         },
-        "properties": {
-          "description": "properties of a certificate",
+        "isVerified": {
+          "description": "True indicates that the certificate will be created in verified state and proof of possession will not be required.",
           "oneOf": [
             {
-              "$ref": "#/definitions/CertificateProperties"
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -142,7 +137,6 @@
       },
       "required": [
         "name",
-        "properties",
         "apiVersion",
         "type"
       ],
@@ -153,12 +147,12 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-02-01-preview"
+            "2021-10-15"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -189,61 +183,7 @@
     }
   },
   "definitions": {
-    "CertificateProperties": {
-      "description": "The description of an X509 CA Certificate.",
-      "properties": {
-        "certificate": {
-          "description": "base-64 representation of X509 certificate .cer file or just .pem file content."
-        },
-        "isVerified": {
-          "description": "Determines whether certificate has been verified.",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
-    "DeviceRegistryNamespaceDescription": {
-      "description": "Description of the Device Registry namespace that is linked to the provisioning service.",
-      "properties": {
-        "authenticationType": {
-          "description": "Device Registry Namespace MI authentication type: UserAssigned, SystemAssigned.",
-          "oneOf": [
-            {
-              "enum": [
-                "UserAssigned",
-                "SystemAssigned"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "resourceId": {
-          "description": "The ARM resource ID of the Device Registry namespace.",
-          "type": "string"
-        },
-        "selectedUserAssignedIdentityResourceId": {
-          "description": "The selected user-assigned identity resource Id associated with Device Registry namespace. This is required when authenticationType is UserAssigned.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "resourceId",
-        "authenticationType"
-      ],
-      "type": "object"
-    },
     "IotDpsPropertiesDescription": {
-      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -269,17 +209,6 @@
                 "$ref": "#/definitions/SharedAccessSignatureAuthorizationRuleAccessRightsDescription"
               },
               "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "deviceRegistryNamespace": {
-          "description": "The Device Registry namespace that is linked to the provisioning service.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/DeviceRegistryNamespaceDescription"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -324,10 +253,6 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
-        },
-        "portalOperationsHostName": {
-          "description": "Portal endpoint to enable CORS for this provisioning service.",
-          "type": "string"
         },
         "privateEndpointConnections": {
           "description": "Private endpoint connections created on this IotHub",
@@ -391,7 +316,6 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
-      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -422,7 +346,6 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
-      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
           "description": "weight to apply for a given iot h.",
@@ -462,7 +385,6 @@
       "type": "object"
     },
     "IpFilterRule": {
-      "description": "The IP filter rules for a provisioning Service.",
       "properties": {
         "action": {
           "description": "The desired action for requests captured by this rule.",
@@ -505,60 +427,17 @@
         }
       },
       "required": [
-        "filterName",
         "action",
+        "filterName",
         "ipMask"
       ],
       "type": "object"
     },
-    "ManagedServiceIdentity": {
-      "description": "Managed service identity (system assigned and/or user assigned identities)",
-      "properties": {
-        "type": {
-          "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
-          "oneOf": [
-            {
-              "enum": [
-                "None",
-                "SystemAssigned",
-                "UserAssigned",
-                "SystemAssigned,UserAssigned"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "userAssignedIdentities": {
-          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
-          "oneOf": [
-            {
-              "additionalProperties": {
-                "$ref": "#/definitions/UserAssignedIdentity"
-              },
-              "properties": {},
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "required": [
-        "type"
-      ],
-      "type": "object"
-    },
     "PrivateEndpoint": {
-      "description": "The private endpoint property of a private endpoint connection",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
-      "description": "The private endpoint connection of a provisioning service",
       "properties": {
         "properties": {
           "description": "The properties of a private endpoint connection",
@@ -578,7 +457,6 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "The properties of a private endpoint connection",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint property of a private endpoint connection",
@@ -609,7 +487,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "The current state of a private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "Actions required for a private endpoint connection",
@@ -638,13 +515,19 @@
         }
       },
       "required": [
-        "status",
-        "description"
+        "description",
+        "status"
       ],
       "type": "object"
     },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
-      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -684,29 +567,36 @@
       ],
       "type": "object"
     },
-    "UserAssignedIdentity": {
-      "description": "User assigned identity properties",
-      "properties": {},
-      "type": "object"
-    },
     "provisioningServices_certificates_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/certificates",
+      "description": "certificates",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-02-01-preview"
+            "2021-10-15"
           ],
           "type": "string"
         },
-        "name": {
-          "description": "Name of the certificate to retrieve.",
+        "certificate": {
+          "description": "Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.",
           "type": "string"
         },
-        "properties": {
-          "description": "properties of a certificate",
+        "isVerified": {
+          "description": "True indicates that the certificate will be created in verified state and proof of possession will not be required.",
           "oneOf": [
             {
-              "$ref": "#/definitions/CertificateProperties"
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -722,23 +612,22 @@
       },
       "required": [
         "name",
-        "properties",
         "apiVersion",
         "type"
       ],
       "type": "object"
     },
     "provisioningServices_privateEndpointConnections_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2025-02-01-preview"
+            "2021-10-15"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {

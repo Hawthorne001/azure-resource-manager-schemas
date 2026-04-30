@@ -29,7 +29,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Kubernetes cluster on which get is called.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -66,6 +66,8 @@
         }
       },
       "required": [
+        "identity",
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -76,10 +78,9 @@
   },
   "definitions": {
     "ConnectedClusterAADProfile": {
-      "description": "AAD profile of the connected cluster",
       "properties": {
         "clientAppId": {
-          "description": "The client app id configured on target K8 cluster ",
+          "description": "The client app id configured on target K8 cluster",
           "type": "string"
         },
         "serverAppId": {
@@ -92,14 +93,13 @@
         }
       },
       "required": [
-        "tenantId",
         "clientAppId",
-        "serverAppId"
+        "serverAppId",
+        "tenantId"
       ],
       "type": "object"
     },
     "ConnectedClusterIdentity": {
-      "description": "Identity for the connected cluster.",
       "properties": {
         "type": {
           "description": "The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.",
@@ -123,7 +123,6 @@
       "type": "object"
     },
     "ConnectedClusterProperties": {
-      "description": "Properties of the connected cluster.",
       "properties": {
         "aadProfile": {
           "description": "AAD profile of the connected cluster.",
@@ -187,9 +186,16 @@
         }
       },
       "required": [
-        "agentPublicKeyCertificate",
-        "aadProfile"
+        "aadProfile",
+        "agentPublicKeyCertificate"
       ],
+      "type": "object"
+    },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
       "type": "object"
     }
   }

@@ -43,7 +43,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Kubernetes cluster on which get is called.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -80,6 +80,8 @@
         }
       },
       "required": [
+        "identity",
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -90,7 +92,6 @@
   },
   "definitions": {
     "AadProfile": {
-      "description": "AAD Profile specifies attributes for Azure Active Directory integration.",
       "properties": {
         "adminGroupObjectIDs": {
           "description": "The list of AAD group object IDs that will have admin role of the cluster.",
@@ -125,12 +126,10 @@
       "type": "object"
     },
     "AgentError": {
-      "description": "Agent Errors if any during agent or system component upgrade.",
       "properties": {},
       "type": "object"
     },
     "ArcAgentProfile": {
-      "description": "Defines the Arc Agent properties for the clusters.",
       "properties": {
         "agentAutoUpgrade": {
           "description": "Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.",
@@ -183,7 +182,6 @@
       "type": "object"
     },
     "ConnectedClusterIdentity": {
-      "description": "Identity for the connected cluster.",
       "properties": {
         "type": {
           "description": "The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.",
@@ -207,7 +205,6 @@
       "type": "object"
     },
     "ConnectedClusterProperties": {
-      "description": "Properties of the connected cluster.",
       "properties": {
         "aadProfile": {
           "description": "AAD profile for the connected cluster.",
@@ -331,7 +328,6 @@
       "type": "object"
     },
     "OidcIssuerProfile": {
-      "description": "OIDC Issuer Profile specifies attributes for workload identity integration.",
       "properties": {
         "enabled": {
           "description": "Whether to enable oidc issuer for workload identity integration.",
@@ -352,7 +348,6 @@
       "type": "object"
     },
     "SecurityProfile": {
-      "description": "Security Profile specifies attributes for cluster security features.",
       "properties": {
         "workloadIdentity": {
           "description": "The workload identity feature webhook.",
@@ -369,7 +364,6 @@
       "type": "object"
     },
     "SecurityProfileWorkloadIdentity": {
-      "description": "The workload identity feature webhook.",
       "properties": {
         "enabled": {
           "description": "Whether to enable or disable the workload identity Webhook",
@@ -386,7 +380,6 @@
       "type": "object"
     },
     "SystemComponent": {
-      "description": "System extensions and its current versions installed on the cluster resource.",
       "properties": {
         "majorVersion": {
           "description": "Major Version of the system extension that is currently installed on the cluster resource.",
@@ -408,6 +401,13 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
       "type": "object"
     }
   }

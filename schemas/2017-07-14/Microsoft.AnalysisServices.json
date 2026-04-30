@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 63,
@@ -76,7 +76,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "properties",
         "apiVersion",
         "type"
@@ -86,7 +88,6 @@
   },
   "definitions": {
     "AnalysisServicesServerProperties": {
-      "description": "Properties of Analysis Services resource.",
       "properties": {
         "asAdministrators": {
           "description": "A collection of AS server administrators",
@@ -118,15 +119,7 @@
           "description": "The managed mode of the server (0 = not managed, 1 = managed).",
           "oneOf": [
             {
-              "oneOf": [
-                {
-                  "default": 1,
-                  "type": "integer"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -137,15 +130,7 @@
           "description": "The server monitor mode for AS server",
           "oneOf": [
             {
-              "oneOf": [
-                {
-                  "default": 1,
-                  "type": "integer"
-                },
-                {
-                  "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-                }
-              ]
+              "type": "integer"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -156,7 +141,6 @@
       "type": "object"
     },
     "GatewayDetails": {
-      "description": "The gateway details.",
       "properties": {
         "gatewayResourceId": {
           "description": "Gateway resource to be associated with the server.",
@@ -166,7 +150,6 @@
       "type": "object"
     },
     "ResourceSku": {
-      "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource.",
       "properties": {
         "name": {
           "description": "Name of the SKU level.",
@@ -194,8 +177,14 @@
       ],
       "type": "object"
     },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "ServerAdministrators": {
-      "description": "An array of administrator user identities",
       "properties": {
         "members": {
           "description": "An array of administrator user identities.",

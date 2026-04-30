@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2021-03-31/Microsoft.Devices.IoTHub.json#",
+  "id": "https://schema.management.azure.com/schemas/2025-08-01-preview/Microsoft.Devices.json#",
   "title": "Microsoft.Devices",
   "description": "Microsoft Devices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2021-03-31"
+            "2025-08-01-preview"
           ],
           "type": "string"
         },
@@ -33,7 +33,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the IoT hub.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -94,7 +94,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "properties",
         "apiVersion",
         "type"
@@ -106,12 +108,12 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2021-03-31"
+            "2025-08-01-preview"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[A-Za-z0-9-._]{1,64}$",
@@ -153,19 +155,19 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2021-03-31"
+            "2025-08-01-preview"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the consumer group to add.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
           "description": "The EventHub consumer group name.",
           "oneOf": [
             {
-              "$ref": "#/definitions/EventHubConsumerGroupName"
+              "$ref": "#/definitions/EventHubConsumerGroupNameOrEventHubConsumerGroupInfoProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -192,12 +194,12 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2021-03-31"
+            "2025-08-01-preview"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -231,7 +233,7 @@
     "ArmIdentity": {
       "properties": {
         "type": {
-          "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.",
+          "description": "The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.",
           "oneOf": [
             {
               "enum": [
@@ -265,22 +267,42 @@
       },
       "type": "object"
     },
+    "ArmIdentityUserAssignedIdentities": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ArmUserIdentity"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "ArmUserIdentity": {
       "properties": {},
       "type": "object"
     },
     "CertificateProperties": {
-      "description": "The description of an X509 CA Certificate.",
       "properties": {
         "certificate": {
           "description": "The certificate content",
+          "type": "string"
+        },
+        "isVerified": {
+          "description": "Determines whether certificate has been verified.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policyResourceId": {
+          "description": "The reference to policy stored in Azure Device Registry (ADR).",
           "type": "string"
         }
       },
       "type": "object"
     },
     "CloudToDeviceProperties": {
-      "description": "The IoT hub cloud-to-device messaging properties.",
       "properties": {
         "defaultTtlAsIso8601": {
           "description": "The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.",
@@ -313,8 +335,43 @@
       },
       "type": "object"
     },
+    "DeviceRegistry": {
+      "properties": {
+        "identityResourceId": {
+          "description": "The identity used to manage the ADR namespace from the data plane.",
+          "type": "string"
+        },
+        "namespaceResourceId": {
+          "description": "The identifier of the Azure Device Registry namespace associated with the GEN2 SKU hub.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EncryptionPropertiesDescription": {
+      "properties": {
+        "keySource": {
+          "description": "The source of the key.",
+          "type": "string"
+        },
+        "keyVaultProperties": {
+          "description": "The properties of the KeyVault key.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/KeyVaultKeyProperties"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "EnrichmentProperties": {
-      "description": "The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.",
       "properties": {
         "endpointNames": {
           "description": "The list of endpoints for which the enrichment is applied to the message.",
@@ -340,14 +397,13 @@
         }
       },
       "required": [
+        "endpointNames",
         "key",
-        "value",
-        "endpointNames"
+        "value"
       ],
       "type": "object"
     },
-    "EventHubConsumerGroupName": {
-      "description": "The EventHub consumer group name.",
+    "EventHubConsumerGroupNameOrEventHubConsumerGroupInfoProperties": {
       "properties": {
         "name": {
           "description": "EventHub consumer group name",
@@ -360,7 +416,6 @@
       "type": "object"
     },
     "EventHubProperties": {
-      "description": "The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.",
       "properties": {
         "partitionCount": {
           "description": "The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.",
@@ -388,7 +443,6 @@
       "type": "object"
     },
     "FallbackRouteProperties": {
-      "description": "The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.",
       "properties": {
         "condition": {
           "description": "The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language",
@@ -433,7 +487,9 @@
                 "TwinChangeEvents",
                 "DeviceLifecycleEvents",
                 "DeviceJobLifecycleEvents",
-                "DeviceConnectionStateEvents"
+                "DigitalTwinChangeEvents",
+                "DeviceConnectionStateEvents",
+                "MqttBrokerMessages"
               ],
               "type": "string"
             },
@@ -444,14 +500,13 @@
         }
       },
       "required": [
-        "source",
         "endpointNames",
-        "isEnabled"
+        "isEnabled",
+        "source"
       ],
       "type": "object"
     },
     "FeedbackProperties": {
-      "description": "The properties of the feedback queue for cloud-to-device messages.",
       "properties": {
         "lockDurationAsIso8601": {
           "description": "The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.",
@@ -478,8 +533,21 @@
       "type": "object"
     },
     "IotHubProperties": {
-      "description": "The properties of an IoT hub.",
       "properties": {
+        "allowedFqdnList": {
+          "description": "List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "authorizationPolicies": {
           "description": "The shared access policies you can use to secure a connection to the IoT hub.",
           "oneOf": [
@@ -509,11 +577,88 @@
           "description": "IoT hub comments.",
           "type": "string"
         },
+        "deviceRegistry": {
+          "description": "Represents properties related to the Azure Device Registry (ADR).",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceRegistry"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "deviceStreams": {
+          "description": "The device streams properties of iothub.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/IotHubPropertiesDeviceStreams"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "disableDeviceSAS": {
+          "description": "If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "disableLocalAuth": {
+          "description": "If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "disableModuleSAS": {
+          "description": "If true, all module scoped SAS keys cannot be used for authentication.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "enableDataResidency": {
+          "description": "This property when set to true, will enable data residency, thus, disabling disaster recovery.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "enableFileUploadNotifications": {
           "description": "If True, file upload notifications are enabled.",
           "oneOf": [
             {
               "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "encryption": {
+          "description": "The encryption properties for the IoT hub.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EncryptionPropertiesDescription"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -558,6 +703,22 @@
                 "$ref": "#/definitions/IpFilterRule"
               },
               "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "ipVersion": {
+          "description": "This property specifies the IP Version the hub is currently utilizing.",
+          "oneOf": [
+            {
+              "enum": [
+                "ipv4",
+                "ipv6",
+                "ipv4ipv6"
+              ],
+              "type": "string"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -623,6 +784,28 @@
             }
           ]
         },
+        "restrictOutboundNetworkAccess": {
+          "description": "If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "rootCertificate": {
+          "description": "This property store root certificate related information",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RootCertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "routing": {
           "description": "The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging",
           "oneOf": [
@@ -652,8 +835,47 @@
       },
       "type": "object"
     },
+    "IotHubPropertiesDeviceStreams": {
+      "properties": {
+        "streamingEndpoints": {
+          "description": "List of Device Streams Endpoints.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "IotHubPropertiesEventHubEndpoints": {
+      "additionalProperties": {
+        "$ref": "#/definitions/EventHubProperties"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "IotHubPropertiesMessagingEndpoints": {
+      "additionalProperties": {
+        "$ref": "#/definitions/MessagingEndpointProperties"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "IotHubPropertiesStorageEndpoints": {
+      "additionalProperties": {
+        "$ref": "#/definitions/StorageEndpointProperties"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "IotHubSkuInfo": {
-      "description": "Information about the SKU of the IoT hub.",
       "properties": {
         "capacity": {
           "description": "The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.",
@@ -677,7 +899,8 @@
                 "S3",
                 "B1",
                 "B2",
-                "B3"
+                "B3",
+                "GEN2"
               ],
               "type": "string"
             },
@@ -692,55 +915,7 @@
       ],
       "type": "object"
     },
-    "IotHubs_certificates_childResource": {
-      "description": "Microsoft.Devices/IotHubs/certificates",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2021-03-31"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the certificate",
-          "oneOf": [
-            {
-              "pattern": "^[A-Za-z0-9-._]{1,64}$",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "The description of an X509 CA Certificate.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CertificateProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "certificates"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    },
     "IpFilterRule": {
-      "description": "The IP filter rules for the IoT hub.",
       "properties": {
         "action": {
           "description": "The desired action for requests captured by this rule.",
@@ -767,14 +942,33 @@
         }
       },
       "required": [
-        "filterName",
         "action",
+        "filterName",
         "ipMask"
       ],
       "type": "object"
     },
+    "KeyVaultKeyProperties": {
+      "properties": {
+        "identity": {
+          "description": "Managed identity properties of KeyVault Key.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "keyIdentifier": {
+          "description": "The identifier of the key.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ManagedIdentity": {
-      "description": "The properties of the Managed identity.",
       "properties": {
         "userAssignedIdentity": {
           "description": "The user assigned identity.",
@@ -784,7 +978,6 @@
       "type": "object"
     },
     "MessagingEndpointProperties": {
-      "description": "The properties of the messaging endpoints used by this IoT hub.",
       "properties": {
         "lockDurationAsIso8601": {
           "description": "The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.",
@@ -811,7 +1004,6 @@
       "type": "object"
     },
     "NetworkRuleSetIpRule": {
-      "description": "IP Rule to be applied as part of Network Rule Set",
       "properties": {
         "action": {
           "description": "IP Filter Action",
@@ -843,7 +1035,6 @@
       "type": "object"
     },
     "NetworkRuleSetProperties": {
-      "description": "Network Rule Set Properties of IotHub",
       "properties": {
         "applyToBuiltInEventHubEndpoint": {
           "description": "If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub",
@@ -893,12 +1084,10 @@
       "type": "object"
     },
     "PrivateEndpoint": {
-      "description": "The private endpoint property of a private endpoint connection",
       "properties": {},
       "type": "object"
     },
     "PrivateEndpointConnection": {
-      "description": "The private endpoint connection of an IotHub",
       "properties": {
         "properties": {
           "description": "The properties of a private endpoint connection",
@@ -918,7 +1107,6 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "The properties of a private endpoint connection",
       "properties": {
         "privateEndpoint": {
           "description": "The private endpoint property of a private endpoint connection",
@@ -949,7 +1137,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "The current state of a private endpoint connection",
       "properties": {
         "actionsRequired": {
           "description": "Actions required for a private endpoint connection",
@@ -978,13 +1165,35 @@
         }
       },
       "required": [
-        "status",
-        "description"
+        "description",
+        "status"
       ],
       "type": "object"
     },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "RootCertificateProperties": {
+      "properties": {
+        "enableRootCertificateV2": {
+          "description": "This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "RouteProperties": {
-      "description": "The properties of a routing rule that your IoT hub uses to route messages to endpoints.",
       "properties": {
         "condition": {
           "description": "The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language",
@@ -1037,7 +1246,9 @@
                 "TwinChangeEvents",
                 "DeviceLifecycleEvents",
                 "DeviceJobLifecycleEvents",
-                "DeviceConnectionStateEvents"
+                "DigitalTwinChangeEvents",
+                "DeviceConnectionStateEvents",
+                "MqttBrokerMessages"
               ],
               "type": "string"
             },
@@ -1048,16 +1259,114 @@
         }
       },
       "required": [
-        "name",
-        "source",
         "endpointNames",
-        "isEnabled"
+        "isEnabled",
+        "name",
+        "source"
+      ],
+      "type": "object"
+    },
+    "RoutingCosmosDBSqlApiProperties": {
+      "properties": {
+        "authenticationType": {
+          "description": "Method used to authenticate against the cosmos DB sql container endpoint",
+          "oneOf": [
+            {
+              "enum": [
+                "keyBased",
+                "identityBased"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "containerName": {
+          "description": "The name of the cosmos DB sql container in the cosmos DB database.",
+          "type": "string"
+        },
+        "databaseName": {
+          "description": "The name of the cosmos DB database in the cosmos DB account.",
+          "type": "string"
+        },
+        "endpointUri": {
+          "description": "The url of the cosmos DB account. It must include the protocol https://",
+          "type": "string"
+        },
+        "identity": {
+          "description": "Managed identity properties of routing cosmos DB container endpoint.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ManagedIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9-._]{1,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "partitionKeyName": {
+          "description": "The name of the partition key associated with this cosmos DB sql container if one exists. This is an optional parameter.",
+          "type": "string"
+        },
+        "partitionKeyTemplate": {
+          "description": "The template for generating a synthetic partition key value for use with this cosmos DB sql container. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.",
+          "type": "string"
+        },
+        "primaryKey": {
+          "description": "The primary key of the cosmos DB account.",
+          "type": "string"
+        },
+        "resourceGroup": {
+          "description": "The name of the resource group of the cosmos DB account.",
+          "type": "string"
+        },
+        "secondaryKey": {
+          "description": "The secondary key of the cosmos DB account.",
+          "type": "string"
+        },
+        "subscriptionId": {
+          "description": "The subscription identifier of the cosmos DB account.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "containerName",
+        "databaseName",
+        "endpointUri",
+        "name"
       ],
       "type": "object"
     },
     "RoutingEndpoints": {
-      "description": "The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.",
       "properties": {
+        "cosmosDBSqlContainers": {
+          "description": "The list of Cosmos DB container endpoints that IoT hub routes messages to, based on the routing rules.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/RoutingCosmosDBSqlApiProperties"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "eventHubs": {
           "description": "The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.",
           "oneOf": [
@@ -1118,7 +1427,6 @@
       "type": "object"
     },
     "RoutingEventHubProperties": {
-      "description": "The properties related to an event hub endpoint.",
       "properties": {
         "authenticationType": {
           "description": "Method used to authenticate against the event hub endpoint",
@@ -1136,7 +1444,7 @@
           ]
         },
         "connectionString": {
-          "description": "The connection string of the event hub endpoint. ",
+          "description": "The connection string of the event hub endpoint.",
           "type": "string"
         },
         "endpointUri": {
@@ -1189,7 +1497,6 @@
       "type": "object"
     },
     "RoutingProperties": {
-      "description": "The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging",
       "properties": {
         "endpoints": {
           "description": "The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.",
@@ -1245,7 +1552,6 @@
       "type": "object"
     },
     "RoutingServiceBusQueueEndpointProperties": {
-      "description": "The properties related to service bus queue endpoint types.",
       "properties": {
         "authenticationType": {
           "description": "Method used to authenticate against the service bus queue endpoint",
@@ -1316,7 +1622,6 @@
       "type": "object"
     },
     "RoutingServiceBusTopicEndpointProperties": {
-      "description": "The properties related to service bus topic endpoint types.",
       "properties": {
         "authenticationType": {
           "description": "Method used to authenticate against the service bus topic endpoint",
@@ -1387,7 +1692,6 @@
       "type": "object"
     },
     "RoutingStorageContainerProperties": {
-      "description": "The properties related to a storage container endpoint.",
       "properties": {
         "authenticationType": {
           "description": "Method used to authenticate against the storage endpoint",
@@ -1499,13 +1803,12 @@
         }
       },
       "required": [
-        "name",
-        "containerName"
+        "containerName",
+        "name"
       ],
       "type": "object"
     },
     "SharedAccessSignatureAuthorizationRule": {
-      "description": "The properties of an IoT hub shared access policy.",
       "properties": {
         "keyName": {
           "description": "The name of the shared access policy.",
@@ -1555,7 +1858,6 @@
       "type": "object"
     },
     "StorageEndpointProperties": {
-      "description": "The properties of the Azure Storage endpoint for file upload.",
       "properties": {
         "authenticationType": {
           "description": "Specifies authentication type being used for connecting to the storage account.",
@@ -1602,17 +1904,64 @@
       ],
       "type": "object"
     },
-    "iotHubs_privateEndpointConnections_childResource": {
-      "description": "Microsoft.Devices/iotHubs/privateEndpointConnections",
+    "IotHubs_certificates_childResource": {
+      "description": "certificates",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2021-03-31"
+            "2025-08-01-preview"
           ],
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection",
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9-._]{1,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The description of an X509 CA Certificate.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CertificateProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "certificates"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "iotHubs_privateEndpointConnections_childResource": {
+      "description": "privateEndpointConnections",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {

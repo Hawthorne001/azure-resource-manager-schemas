@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2017-11-15/Microsoft.Devices.Provisioning.json#",
+  "id": "https://schema.management.azure.com/schemas/2017-08-21-preview/Microsoft.Devices.json#",
   "title": "Microsoft.Devices",
   "description": "Microsoft Devices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2017-11-15"
+            "2017-08-21-preview"
           ],
           "type": "string"
         },
@@ -22,11 +22,10 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of provisioning service to create or update.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
-          "description": "Service specific properties for a provisioning service",
           "oneOf": [
             {
               "$ref": "#/definitions/IotDpsPropertiesDescription"
@@ -47,7 +46,7 @@
           "type": "array"
         },
         "sku": {
-          "description": "SKU info for a provisioning service.",
+          "description": "List of possible provisioning service SKUs.",
           "oneOf": [
             {
               "$ref": "#/definitions/IotDpsSkuInfo"
@@ -80,8 +79,10 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -92,7 +93,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2017-11-15"
+            "2017-08-21-preview"
           ],
           "type": "string"
         },
@@ -101,9 +102,16 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -122,7 +130,6 @@
   },
   "definitions": {
     "IotDpsPropertiesDescription": {
-      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -141,7 +148,6 @@
           ]
         },
         "authorizationPolicies": {
-          "description": "List of authorization keys for a provisioning service.",
           "oneOf": [
             {
               "items": {
@@ -201,10 +207,9 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
-      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
-          "description": "The number of units to provision",
+          "description": "The number of services of the selected tier allowed in the subscription.",
           "oneOf": [
             {
               "type": "integer"
@@ -215,7 +220,6 @@
           ]
         },
         "name": {
-          "description": "Sku name.",
           "oneOf": [
             {
               "enum": [
@@ -232,10 +236,8 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
-      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
-          "description": "Weight to apply for a given IoT hub.",
           "oneOf": [
             {
               "type": "integer"
@@ -246,7 +248,6 @@
           ]
         },
         "applyAllocationPolicy": {
-          "description": "Flag for applying allocationPolicy or not for a given IoT hub.",
           "oneOf": [
             {
               "type": "boolean"
@@ -257,7 +258,7 @@
           ]
         },
         "connectionString": {
-          "description": "Connection string of the IoT hub.",
+          "description": "Connection string og the IoT hub.",
           "type": "string"
         },
         "location": {
@@ -271,8 +272,14 @@
       ],
       "type": "object"
     },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
-      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -313,11 +320,11 @@
       "type": "object"
     },
     "provisioningServices_certificates_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/certificates",
+      "description": "certificates",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2017-11-15"
+            "2017-08-21-preview"
           ],
           "type": "string"
         },
@@ -326,9 +333,16 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

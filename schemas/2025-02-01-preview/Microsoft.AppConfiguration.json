@@ -29,7 +29,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the configuration store.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 50,
@@ -57,16 +57,16 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/configurationStores_replicas_childResource"
-              },
-              {
                 "$ref": "#/definitions/configurationStores_keyValues_childResource"
               },
               {
-                "$ref": "#/definitions/configurationStores_snapshots_childResource"
+                "$ref": "#/definitions/configurationStores_privateEndpointConnections_childResource"
               },
               {
-                "$ref": "#/definitions/configurationStores_privateEndpointConnections_childResource"
+                "$ref": "#/definitions/configurationStores_replicas_childResource"
+              },
+              {
+                "$ref": "#/definitions/configurationStores_snapshots_childResource"
               }
             ]
           },
@@ -106,7 +106,9 @@
         }
       },
       "required": [
+        "location",
         "name",
+        "sku",
         "properties",
         "apiVersion",
         "type"
@@ -123,7 +125,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Identifier of key and label combination. Key and label are joined by $ character. Label is optional.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -162,7 +164,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Private endpoint connection name",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -205,7 +207,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the replica.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9]*$",
@@ -252,7 +254,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the snapshot.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[^\\x00-\\x1F\\x7F]+$",
@@ -292,7 +294,6 @@
   },
   "definitions": {
     "ConfigurationStoreProperties": {
-      "description": "The properties of a configuration store.",
       "properties": {
         "createMode": {
           "description": "Indicates whether the configuration store need to be recovered.",
@@ -335,7 +336,6 @@
           "description": "Disables all authentication methods other than AAD authentication.",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -347,7 +347,6 @@
           "description": "Property specifying whether protection against purge is enabled for this configuration store.",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -385,7 +384,6 @@
           "description": "The amount of time in days that the configuration store will be retained when it is soft deleted.",
           "oneOf": [
             {
-              "default": 7,
               "type": "integer"
             },
             {
@@ -408,7 +406,6 @@
       "type": "object"
     },
     "DataPlaneProxyProperties": {
-      "description": "The data plane proxy settings for a configuration store.",
       "properties": {
         "authenticationMode": {
           "description": "The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.",
@@ -444,7 +441,6 @@
       "type": "object"
     },
     "EncryptionProperties": {
-      "description": "The encryption settings for a configuration store.",
       "properties": {
         "keyVaultProperties": {
           "description": "Key vault properties.",
@@ -461,7 +457,6 @@
       "type": "object"
     },
     "KeyValueFilter": {
-      "description": "Enables filtering of key-values.",
       "properties": {
         "key": {
           "description": "Filters key-values by their key field.",
@@ -478,7 +473,6 @@
       "type": "object"
     },
     "KeyValueProperties": {
-      "description": "All key-value properties.",
       "properties": {
         "contentType": {
           "description": "The content type of the key-value's value.\nProviding a proper content-type can enable transformations of values when they are retrieved by applications.",
@@ -506,8 +500,14 @@
       },
       "type": "object"
     },
+    "KeyValuePropertiesTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "KeyVaultProperties": {
-      "description": "Settings concerning key vault encryption for a configuration store.",
       "properties": {
         "identityClientId": {
           "description": "The client id of the identity which will be used to access key vault.",
@@ -521,7 +521,6 @@
       "type": "object"
     },
     "PrivateEndpoint": {
-      "description": "Private endpoint which a connection belongs to.",
       "properties": {
         "id": {
           "description": "The resource Id for private endpoint",
@@ -531,7 +530,6 @@
       "type": "object"
     },
     "PrivateEndpointConnectionProperties": {
-      "description": "Properties of a private endpoint connection.",
       "properties": {
         "privateEndpoint": {
           "description": "The resource of private endpoint.",
@@ -562,7 +560,6 @@
       "type": "object"
     },
     "PrivateLinkServiceConnectionState": {
-      "description": "The state of a private link service connection.",
       "properties": {
         "description": {
           "description": "The private link service connection description.",
@@ -589,12 +586,10 @@
       "type": "object"
     },
     "ReplicaProperties": {
-      "description": "All replica properties.",
       "properties": {},
       "type": "object"
     },
     "ResourceIdentity": {
-      "description": "An identity that can be associated with a resource.",
       "properties": {
         "type": {
           "description": "The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.",
@@ -631,8 +626,14 @@
       },
       "type": "object"
     },
+    "ResourceIdentityUserAssignedIdentities": {
+      "additionalProperties": {
+        "$ref": "#/definitions/UserIdentity"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "Sku": {
-      "description": "Describes a configuration store SKU.",
       "properties": {
         "name": {
           "description": "The SKU name of the configuration store.",
@@ -645,7 +646,6 @@
       "type": "object"
     },
     "SnapshotProperties": {
-      "description": "All snapshot properties.",
       "properties": {
         "compositionType": {
           "description": "The composition type describes how the key-values within the snapshot are composed. The 'key' composition type ensures there are no two key-values containing the same key. The 'key_label' composition type ensures there are no two key-values containing the same key and label.",
@@ -710,8 +710,14 @@
       ],
       "type": "object"
     },
+    "SnapshotPropertiesTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "TelemetryProperties": {
-      "description": "Telemetry settings",
       "properties": {
         "resourceId": {
           "description": "Resource ID of a resource enabling telemetry collection",
@@ -720,13 +726,19 @@
       },
       "type": "object"
     },
+    "TrackedResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "UserIdentity": {
-      "description": "A resource identity that is managed by the user of the service.",
       "properties": {},
       "type": "object"
     },
     "configurationStores_keyValues_childResource": {
-      "description": "Microsoft.AppConfiguration/configurationStores/keyValues",
+      "description": "keyValues",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -735,7 +747,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Identifier of key and label combination. Key and label are joined by $ character. Label is optional.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -765,7 +777,7 @@
       "type": "object"
     },
     "configurationStores_privateEndpointConnections_childResource": {
-      "description": "Microsoft.AppConfiguration/configurationStores/privateEndpointConnections",
+      "description": "privateEndpointConnections",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -774,7 +786,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Private endpoint connection name",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -804,7 +816,7 @@
       "type": "object"
     },
     "configurationStores_replicas_childResource": {
-      "description": "Microsoft.AppConfiguration/configurationStores/replicas",
+      "description": "replicas",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -817,7 +829,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the replica.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[a-zA-Z0-9]*$",
@@ -855,7 +867,7 @@
       "type": "object"
     },
     "configurationStores_snapshots_childResource": {
-      "description": "Microsoft.AppConfiguration/configurationStores/snapshots",
+      "description": "snapshots",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -864,7 +876,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the snapshot.",
+          "description": "The resource name",
           "oneOf": [
             {
               "pattern": "^[^\\x00-\\x1F\\x7F]+$",

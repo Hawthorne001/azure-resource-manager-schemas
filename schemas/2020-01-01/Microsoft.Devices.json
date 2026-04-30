@@ -1,5 +1,5 @@
 {
-  "id": "https://schema.management.azure.com/schemas/2018-01-22/Microsoft.Devices.Provisioning.json#",
+  "id": "https://schema.management.azure.com/schemas/2020-01-01/Microsoft.Devices.json#",
   "title": "Microsoft.Devices",
   "description": "Microsoft Devices Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
@@ -9,7 +9,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2018-01-22"
+            "2020-01-01"
           ],
           "type": "string"
         },
@@ -22,7 +22,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of provisioning service to create or update.",
+          "description": "The resource name",
           "type": "string"
         },
         "properties": {
@@ -80,8 +80,10 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
+        "sku",
         "apiVersion",
         "type"
       ],
@@ -92,7 +94,7 @@
       "properties": {
         "apiVersion": {
           "enum": [
-            "2018-01-22"
+            "2020-01-01"
           ],
           "type": "string"
         },
@@ -101,9 +103,16 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [
@@ -122,7 +131,6 @@
   },
   "definitions": {
     "IotDpsPropertiesDescription": {
-      "description": "the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope",
       "properties": {
         "allocationPolicy": {
           "description": "Allocation policy to be used by this provisioning service.",
@@ -168,6 +176,20 @@
             }
           ]
         },
+        "ipFilterRules": {
+          "description": "The IP filter rules.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/IpFilterRule"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
         "provisioningState": {
           "description": "The ARM provisioning state of the provisioning service.",
           "type": "string"
@@ -201,7 +223,6 @@
       "type": "object"
     },
     "IotDpsSkuInfo": {
-      "description": "List of possible provisioning service SKUs.",
       "properties": {
         "capacity": {
           "description": "The number of units to provision",
@@ -232,7 +253,6 @@
       "type": "object"
     },
     "IotHubDefinitionDescription": {
-      "description": "Description of the IoT hub.",
       "properties": {
         "allocationWeight": {
           "description": "weight to apply for a given iot h.",
@@ -271,8 +291,63 @@
       ],
       "type": "object"
     },
+    "IpFilterRule": {
+      "properties": {
+        "action": {
+          "description": "The desired action for requests captured by this rule.",
+          "oneOf": [
+            {
+              "enum": [
+                "Accept",
+                "Reject"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "filterName": {
+          "description": "The name of the IP filter rule.",
+          "type": "string"
+        },
+        "ipMask": {
+          "description": "A string that contains the IP address range in CIDR notation for the rule.",
+          "type": "string"
+        },
+        "target": {
+          "description": "Target for requests captured by this rule.",
+          "oneOf": [
+            {
+              "enum": [
+                "all",
+                "serviceApi",
+                "deviceApi"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "filterName",
+        "ipMask"
+      ],
+      "type": "object"
+    },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {},
+      "type": "object"
+    },
     "SharedAccessSignatureAuthorizationRuleAccessRightsDescription": {
-      "description": "Description of the shared access key.",
       "properties": {
         "keyName": {
           "description": "Name of the key.",
@@ -313,11 +388,11 @@
       "type": "object"
     },
     "provisioningServices_certificates_childResource": {
-      "description": "Microsoft.Devices/provisioningServices/certificates",
+      "description": "certificates",
       "properties": {
         "apiVersion": {
           "enum": [
-            "2018-01-22"
+            "2020-01-01"
           ],
           "type": "string"
         },
@@ -326,9 +401,16 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the certificate create or update.",
-          "maxLength": 256,
-          "type": "string"
+          "description": "The resource name",
+          "oneOf": [
+            {
+              "maxLength": 256,
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         },
         "type": {
           "enum": [

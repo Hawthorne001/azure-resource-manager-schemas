@@ -18,7 +18,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the configuration store.",
+          "description": "The resource name",
           "oneOf": [
             {
               "maxLength": 50,
@@ -65,6 +65,7 @@
         }
       },
       "required": [
+        "location",
         "name",
         "properties",
         "apiVersion",
@@ -75,7 +76,13 @@
   },
   "definitions": {
     "ConfigurationStoreProperties": {
-      "description": "The properties of a configuration store.",
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceTags": {
+      "additionalProperties": {
+        "type": "string"
+      },
       "properties": {},
       "type": "object"
     }
