@@ -367,14 +367,6 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
-    "registrationAssignments": {
-      "$ref": "#/resourceDefinitions/registrationAssignments"
-    },
-    "registrationDefinitions": {
-      "$ref": "#/resourceDefinitions/registrationDefinitions"
-    }
-  },
   "definitions": {
     "Authorization": {
       "properties": {
