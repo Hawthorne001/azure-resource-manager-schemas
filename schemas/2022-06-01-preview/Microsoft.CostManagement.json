@@ -3,7 +3,231 @@
   "title": "Microsoft.CostManagement",
   "description": "Microsoft CostManagement Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "scheduledActions": {
       "description": "Microsoft.CostManagement/scheduledActions",
       "properties": {

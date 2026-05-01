@@ -153,7 +153,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update certificate operation.",
+          "description": "The name of certificate.",
           "type": "string"
         },
         "properties": {
@@ -196,7 +196,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The create or update parameters for configuration.",
+          "description": "The configuration name.",
           "type": "string"
         },
         "properties": {
@@ -250,7 +250,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update connection type operation.",
+          "description": "The name of connection type.",
           "type": "string"
         },
         "properties": {
@@ -289,7 +289,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update connection operation.",
+          "description": "The name of connection.",
           "type": "string"
         },
         "properties": {
@@ -328,7 +328,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update credential operation.",
+          "description": "The name of credential.",
           "type": "string"
         },
         "properties": {
@@ -545,7 +545,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of module.",
+          "description": "The module name.",
           "type": "string"
         },
         "properties": {
@@ -692,7 +692,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of python package.",
+          "description": "The python package name.",
           "type": "string"
         },
         "properties": {
@@ -746,7 +746,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of python package.",
+          "description": "The python package name.",
           "type": "string"
         },
         "properties": {
@@ -1047,7 +1047,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of Package.",
+          "description": "The Package name.",
           "type": "string"
         },
         "properties": {
@@ -1164,7 +1164,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The source control name.",
+          "description": "The name of source control.",
           "type": "string"
         },
         "properties": {
@@ -1260,7 +1260,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The variable name.",
+          "description": "The name of variable.",
           "type": "string"
         },
         "properties": {
@@ -1523,6 +1523,20 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        }
+      },
+      "type": "object"
+    },
+    "AutomationErrorResponse": {
+      "description": "Error response of an operation failure",
+      "properties": {
+        "code": {
+          "description": "Error code",
+          "type": "string"
+        },
+        "message": {
+          "description": "Error message indicating why the operation failed.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -1990,29 +2004,7 @@
       "description": "User identity used for CMK.",
       "properties": {
         "userAssignedIdentity": {
-          "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        }
-      },
-      "type": "object"
-    },
-    "ErrorResponse": {
-      "description": "Error response of an operation failure",
-      "properties": {
-        "code": {
-          "description": "Error code",
-          "type": "string"
-        },
-        "message": {
-          "description": "Error message indicating why the operation failed.",
-          "type": "string"
+          "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'."
         }
       },
       "type": "object"
@@ -2656,7 +2648,7 @@
           "type": "string"
         },
         "runtime": {
-          "description": " Runtime properties.",
+          "description": "Runtime properties.",
           "oneOf": [
             {
               "$ref": "#/definitions/RuntimeProperties"
@@ -2756,7 +2748,6 @@
           "description": "Gets or sets a value indicating whether this schedule is enabled.",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -2914,7 +2905,7 @@
           "description": "Details of provisioning error",
           "oneOf": [
             {
-              "$ref": "#/definitions/ErrorResponse"
+              "$ref": "#/definitions/AutomationErrorResponse"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3521,7 +3512,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update certificate operation.",
+          "description": "The name of certificate.",
           "type": "string"
         },
         "properties": {
@@ -3564,7 +3555,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The create or update parameters for configuration.",
+          "description": "The configuration name.",
           "type": "string"
         },
         "properties": {
@@ -3618,7 +3609,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update connection type operation.",
+          "description": "The name of connection type.",
           "type": "string"
         },
         "properties": {
@@ -3657,7 +3648,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update connection operation.",
+          "description": "The name of connection.",
           "type": "string"
         },
         "properties": {
@@ -3696,7 +3687,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The parameters supplied to the create or update credential operation.",
+          "description": "The name of credential.",
           "type": "string"
         },
         "properties": {
@@ -3903,7 +3894,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of module.",
+          "description": "The module name.",
           "type": "string"
         },
         "properties": {
@@ -4050,7 +4041,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of python package.",
+          "description": "The python package name.",
           "type": "string"
         },
         "properties": {
@@ -4104,7 +4095,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of python package.",
+          "description": "The python package name.",
           "type": "string"
         },
         "properties": {
@@ -4389,7 +4380,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of Package.",
+          "description": "The Package name.",
           "type": "string"
         },
         "properties": {
@@ -4506,7 +4497,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The source control name.",
+          "description": "The name of source control.",
           "type": "string"
         },
         "properties": {
@@ -4592,7 +4583,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The variable name.",
+          "description": "The name of variable.",
           "type": "string"
         },
         "properties": {

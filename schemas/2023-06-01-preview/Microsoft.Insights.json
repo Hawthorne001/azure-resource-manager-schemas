@@ -85,7 +85,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection.",
+          "description": "The name of the private endpoint connection associated with the Azure resource",
           "type": "string"
         },
         "properties": {
@@ -374,7 +374,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection.",
+          "description": "The name of the private endpoint connection associated with the Azure resource",
           "type": "string"
         },
         "properties": {

@@ -96,7 +96,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Traffic Manager endpoint to be created or updated.",
+          "description": "The name of the Traffic Manager endpoint.",
           "type": "string"
         },
         "properties": {
@@ -139,7 +139,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Traffic Manager endpoint to be created or updated.",
+          "description": "The name of the Traffic Manager endpoint.",
           "type": "string"
         },
         "properties": {
@@ -182,7 +182,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Traffic Manager endpoint to be created or updated.",
+          "description": "The name of the Traffic Manager endpoint.",
           "type": "string"
         },
         "properties": {
@@ -815,7 +815,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Traffic Manager endpoint to be created or updated.",
+          "description": "The name of the Traffic Manager endpoint.",
           "type": "string"
         },
         "properties": {
@@ -858,7 +858,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Traffic Manager endpoint to be created or updated.",
+          "description": "The name of the Traffic Manager endpoint.",
           "type": "string"
         },
         "properties": {
@@ -901,7 +901,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Traffic Manager endpoint to be created or updated.",
+          "description": "The name of the Traffic Manager endpoint.",
           "type": "string"
         },
         "properties": {

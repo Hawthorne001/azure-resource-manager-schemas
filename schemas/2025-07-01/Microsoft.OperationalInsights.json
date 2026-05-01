@@ -14,7 +14,7 @@
           "type": "string"
         },
         "identity": {
-          "description": "Resource's identity.",
+          "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedServiceIdentity"
@@ -29,18 +29,8 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the Log Analytics cluster.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 4,
-              "pattern": "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Name of the Log Analytics Cluster.",
+          "type": "string"
         },
         "properties": {
           "description": "Log Analytics cluster properties.",
@@ -326,17 +316,7 @@
         },
         "name": {
           "description": "The data export rule name.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 4,
-              "pattern": "^[A-Za-z][A-Za-z0-9-]+[A-Za-z0-9]$",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "type": "string"
         },
         "properties": {
           "description": "data export properties.",
@@ -424,19 +404,11 @@
           ]
         },
         "name": {
-          "description": "The name of the datasource resource.",
+          "description": "Name of the datasource",
           "type": "string"
         },
         "properties": {
-          "description": "The data source properties in raw json format, each kind of data source have it's own schema.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The data source properties in raw json format, each kind of data source have it's own schema."
         },
         "tags": {
           "description": "Resource tags.",
@@ -478,7 +450,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the linkedServices resource",
+          "description": "Name of the linked service.",
           "type": "string"
         },
         "properties": {
@@ -1225,15 +1197,7 @@
           "type": "string"
         },
         "properties": {
-          "description": "Additional properties that can be set for the query.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Additional properties that can be set for the query."
         },
         "related": {
           "description": "The related metadata items for the function.",
@@ -1439,7 +1403,7 @@
       "description": "Value object for saved search results.",
       "properties": {
         "category": {
-          "description": "The category of the saved search. This helps the user to find a saved search faster. ",
+          "description": "The category of the saved search. This helps the user to find a saved search faster.",
           "type": "string"
         },
         "displayName": {
@@ -2080,17 +2044,7 @@
         },
         "name": {
           "description": "The data export rule name.",
-          "oneOf": [
-            {
-              "maxLength": 63,
-              "minLength": 4,
-              "pattern": "^[A-Za-z][A-Za-z0-9-]+[A-Za-z0-9]$",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "type": "string"
         },
         "properties": {
           "description": "data export properties.",
@@ -2178,19 +2132,11 @@
           ]
         },
         "name": {
-          "description": "The name of the datasource resource.",
+          "description": "Name of the datasource",
           "type": "string"
         },
         "properties": {
-          "description": "The data source properties in raw json format, each kind of data source have it's own schema.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The data source properties in raw json format, each kind of data source have it's own schema."
         },
         "tags": {
           "description": "Resource tags.",
@@ -2232,7 +2178,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the linkedServices resource",
+          "description": "Name of the linked service.",
           "type": "string"
         },
         "properties": {

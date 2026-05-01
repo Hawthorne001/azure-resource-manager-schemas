@@ -3,7 +3,483 @@
   "title": "Microsoft.Authorization",
   "description": "Microsoft Authorization Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "roleAssignmentScheduleRequests": {
+      "description": "Microsoft.Authorization/roleAssignmentScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignmentScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleEligibilityScheduleRequests": {
+      "description": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the role eligibility to create. It can be any valid GUID.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role eligibility schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleEligibilityScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleManagementPolicyAssignments": {
+      "description": "Microsoft.Authorization/roleManagementPolicyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of format {guid_guid} the role management policy assignment to upsert.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role management policy properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleManagementPolicyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "roleAssignmentScheduleRequests": {
+      "description": "Microsoft.Authorization/roleAssignmentScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignmentScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleEligibilityScheduleRequests": {
+      "description": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the role eligibility to create. It can be any valid GUID.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role eligibility schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleEligibilityScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleManagementPolicyAssignments": {
+      "description": "Microsoft.Authorization/roleManagementPolicyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of format {guid_guid} the role management policy assignment to upsert.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role management policy properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleManagementPolicyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "roleAssignmentScheduleRequests": {
+      "description": "Microsoft.Authorization/roleAssignmentScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignmentScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleEligibilityScheduleRequests": {
+      "description": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the role eligibility to create. It can be any valid GUID.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role eligibility schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleEligibilityScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleManagementPolicyAssignments": {
+      "description": "Microsoft.Authorization/roleManagementPolicyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of format {guid_guid} the role management policy assignment to upsert.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role management policy properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleManagementPolicyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "roleAssignmentScheduleRequests": {
+      "description": "Microsoft.Authorization/roleAssignmentScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignmentScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleEligibilityScheduleRequests": {
+      "description": "Microsoft.Authorization/roleEligibilityScheduleRequests",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the role eligibility to create. It can be any valid GUID.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role eligibility schedule request properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleEligibilityScheduleRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleEligibilityScheduleRequests"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "roleManagementPolicyAssignments": {
+      "description": "Microsoft.Authorization/roleManagementPolicyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-02-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of format {guid_guid} the role management policy assignment to upsert.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role management policy properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleManagementPolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleManagementPolicyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "roleAssignmentScheduleRequests": {
       "description": "Microsoft.Authorization/roleAssignmentScheduleRequests",
       "properties": {

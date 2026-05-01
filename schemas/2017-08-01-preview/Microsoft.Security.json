@@ -4,6 +4,144 @@
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Advanced Threat Protection setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "deviceSecurityGroups": {
+      "description": "Microsoft.Security/deviceSecurityGroups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the device security group. Note that the name of the device security group is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Device Security group data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceSecurityGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/deviceSecurityGroups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "informationProtectionPolicies": {
+      "description": "Microsoft.Security/informationProtectionPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the information protection policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "effective",
+                "custom"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Information protection policy data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformationProtectionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/informationProtectionPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "iotSecuritySolutions": {
       "description": "Microsoft.Security/iotSecuritySolutions",
       "properties": {
@@ -64,6 +202,55 @@
     }
   },
   "subscription_resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Advanced Threat Protection setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "autoProvisioningSettings": {
       "description": "Microsoft.Security/autoProvisioningSettings",
       "properties": {
@@ -91,6 +278,95 @@
         "type": {
           "enum": [
             "Microsoft.Security/autoProvisioningSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "deviceSecurityGroups": {
+      "description": "Microsoft.Security/deviceSecurityGroups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the device security group. Note that the name of the device security group is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Device Security group data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceSecurityGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/deviceSecurityGroups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "informationProtectionPolicies": {
+      "description": "Microsoft.Security/informationProtectionPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the information protection policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "effective",
+                "custom"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Information protection policy data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformationProtectionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/informationProtectionPolicies"
           ],
           "type": "string"
         }
@@ -220,7 +496,287 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "managementGroup_resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Advanced Threat Protection setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "deviceSecurityGroups": {
+      "description": "Microsoft.Security/deviceSecurityGroups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the device security group. Note that the name of the device security group is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Device Security group data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceSecurityGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/deviceSecurityGroups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "informationProtectionPolicies": {
+      "description": "Microsoft.Security/informationProtectionPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the information protection policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "effective",
+                "custom"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Information protection policy data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformationProtectionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/informationProtectionPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Advanced Threat Protection setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "deviceSecurityGroups": {
+      "description": "Microsoft.Security/deviceSecurityGroups",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the device security group. Note that the name of the device security group is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Device Security group data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DeviceSecurityGroupProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/deviceSecurityGroups"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "informationProtectionPolicies": {
+      "description": "Microsoft.Security/informationProtectionPolicies",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the information protection policy.",
+          "oneOf": [
+            {
+              "enum": [
+                "effective",
+                "custom"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Information protection policy data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InformationProtectionPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/informationProtectionPolicies"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "advancedThreatProtectionSettings": {
       "description": "Microsoft.Security/advancedThreatProtectionSettings",
       "properties": {

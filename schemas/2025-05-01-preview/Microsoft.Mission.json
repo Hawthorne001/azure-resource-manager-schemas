@@ -4,6 +4,53 @@
   "description": "Microsoft Mission Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "approvals": {
+      "description": "Microsoft.Mission/approvals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the approvals resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Mission/approvals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "communities": {
       "description": "Microsoft.Mission/communities",
       "properties": {
@@ -515,7 +562,154 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "approvals": {
+      "description": "Microsoft.Mission/approvals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the approvals resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Mission/approvals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "approvals": {
+      "description": "Microsoft.Mission/approvals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the approvals resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Mission/approvals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "approvals": {
+      "description": "Microsoft.Mission/approvals",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the approvals resource.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApprovalProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Mission/approvals"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "approvals": {
       "description": "Microsoft.Mission/approvals",
       "properties": {

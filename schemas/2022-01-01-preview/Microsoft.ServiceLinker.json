@@ -3,7 +3,171 @@
   "title": "Microsoft.ServiceLinker",
   "description": "Microsoft ServiceLinker Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-01-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "linkers": {
       "description": "Microsoft.ServiceLinker/linkers",
       "properties": {

@@ -22,7 +22,7 @@
           "type": "string"
         },
         "location": {
-          "description": "Location where the resource is stored",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -41,7 +41,7 @@
           ]
         },
         "tags": {
-          "description": "A list of key value pairs that describe the resource.",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -88,7 +88,7 @@
           "type": "string"
         },
         "location": {
-          "description": "Location where the resource is stored",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -107,7 +107,7 @@
           ]
         },
         "tags": {
-          "description": "A list of key value pairs that describe the resource.",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -148,16 +148,6 @@
       },
       "type": "object"
     },
-    "AssignedStandardItem": {
-      "description": "describe the properties of a of a security standard object reference",
-      "properties": {
-        "id": {
-          "description": "full resourceId of the Microsoft.Security/standard object",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "AssignmentProperties": {
       "description": "Describes the properties of a standardAssignment",
       "properties": {
@@ -187,7 +177,7 @@
           "description": "Standard item with key as applied to this standard assignment over the given scope",
           "oneOf": [
             {
-              "$ref": "#/definitions/AssignedStandardItem"
+              "$ref": "#/definitions/CommonAssignedStandardItem"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -212,15 +202,7 @@
           "type": "string"
         },
         "metadata": {
-          "description": "The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs."
         },
         "scope": {
           "description": "Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription",
@@ -234,6 +216,16 @@
       "properties": {
         "exemptionCategory": {
           "description": "Exemption category of this assignment",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CommonAssignedStandardItem": {
+      "description": "Describe the properties of a of a standard assignments object reference",
+      "properties": {
+        "id": {
+          "description": "Full resourceId of the Microsoft.Security/standard object",
           "type": "string"
         }
       },

@@ -4,6 +4,55 @@
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "defenderForStorageSettings": {
+      "description": "Microsoft.Security/defenderForStorageSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Defender for Storage setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Defender for Storage resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefenderForStorageSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/defenderForStorageSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "securityConnectors": {
       "description": "Microsoft.Security/securityConnectors",
       "properties": {
@@ -22,7 +71,7 @@
           "type": "string"
         },
         "location": {
-          "description": "Location where the resource is stored",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -41,7 +90,7 @@
           ]
         },
         "tags": {
-          "description": "A list of key value pairs that describe the resource.",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -71,7 +120,160 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "defenderForStorageSettings": {
+      "description": "Microsoft.Security/defenderForStorageSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Defender for Storage setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Defender for Storage resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefenderForStorageSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/defenderForStorageSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "defenderForStorageSettings": {
+      "description": "Microsoft.Security/defenderForStorageSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Defender for Storage setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Defender for Storage resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefenderForStorageSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/defenderForStorageSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "defenderForStorageSettings": {
+      "description": "Microsoft.Security/defenderForStorageSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Defender for Storage setting name.",
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Defender for Storage resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DefenderForStorageSettingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/defenderForStorageSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "defenderForStorageSettings": {
       "description": "Microsoft.Security/defenderForStorageSettings",
       "properties": {
@@ -1784,15 +1986,7 @@
       "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "properties": {
         "configuration": {
-          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning"
         },
         "enabled": {
           "description": "Is Microsoft Defender for Endpoint auto provisioning enabled",
@@ -1956,15 +2150,7 @@
       "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "properties": {
         "configuration": {
-          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "configuration for Microsoft Defender for Endpoint autoprovisioning"
         },
         "enabled": {
           "description": "Is Microsoft Defender for Endpoint auto provisioning enabled",

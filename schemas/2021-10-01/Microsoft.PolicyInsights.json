@@ -3,7 +3,171 @@
   "title": "Microsoft.PolicyInsights",
   "description": "Microsoft PolicyInsights Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "remediations": {
       "description": "Microsoft.PolicyInsights/remediations",
       "properties": {

@@ -17,7 +17,7 @@
           "description": "The identity of the resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/Identity"
+              "$ref": "#/definitions/MicrosoftCommonIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -353,7 +353,7 @@
       ],
       "type": "object"
     },
-    "Identity": {
+    "MicrosoftCommonIdentity": {
       "description": "Identity for the resource.",
       "properties": {
         "type": {
@@ -377,7 +377,7 @@
           "oneOf": [
             {
               "additionalProperties": {
-                "$ref": "#/definitions/UserIdentityProperties"
+                "$ref": "#/definitions/MicrosoftCommonUserIdentityProperties"
               },
               "properties": {},
               "type": "object"
@@ -391,6 +391,11 @@
       "required": [
         "type"
       ],
+      "type": "object"
+    },
+    "MicrosoftCommonUserIdentityProperties": {
+      "description": "Properties of the user assigned identity.",
+      "properties": {},
       "type": "object"
     },
     "RuleResolveConfiguration": {
@@ -543,7 +548,7 @@
             {
               "oneOf": [
                 {
-                  "type": "integer"
+                  "type": "number"
                 },
                 {
                   "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -585,11 +590,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "UserIdentityProperties": {
-      "description": "User assigned identity properties.",
-      "properties": {},
       "type": "object"
     }
   }

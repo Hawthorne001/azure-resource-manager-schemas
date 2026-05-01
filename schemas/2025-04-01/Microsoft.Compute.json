@@ -735,7 +735,7 @@
           "type": "string"
         },
         "placement": {
-          "description": "Placement section specifies the user-defined constraints for virtual machine scale set hardware placement. This property cannot be changed once VMSS is provisioned. Minimum api-version: 2025-04-01.",
+          "description": "Placement section specifies the user-defined constraints for virtual machine scale set hardware placement. Minimum api-version: 2025-04-01.",
           "oneOf": [
             {
               "$ref": "#/definitions/Placement"
@@ -3709,7 +3709,7 @@
       "type": "object"
     },
     "ResiliencyPolicy": {
-      "description": "Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy and/or ResilientVMDeletionPolicy.",
+      "description": "Describes an resiliency policy - AutomaticZoneRebalancingPolicy, ResilientVMCreationPolicy, ResilientVMDeletionPolicy and OperationRecoverySettings (version > 2025-11-01).",
       "properties": {
         "automaticZoneRebalancingPolicy": {
           "description": "The configuration parameters used while performing automatic AZ balancing.",
@@ -4413,7 +4413,7 @@
           ]
         },
         "securityType": {
-          "description": "Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.",
+          "description": "Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set and is not Standard. If not specified, Standard will be returned starting api version 2025-11-01.",
           "oneOf": [
             {
               "enum": [

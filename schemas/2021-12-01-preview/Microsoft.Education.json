@@ -72,7 +72,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Student alias.",
+          "description": "The student alias.",
           "type": "string"
         },
         "properties": {
@@ -236,7 +236,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Student alias.",
+          "description": "The student alias.",
           "type": "string"
         },
         "properties": {

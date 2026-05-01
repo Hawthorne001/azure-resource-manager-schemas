@@ -239,6 +239,20 @@
             "Microsoft.ContainerService/managedClusters/agentPools/machines"
           ],
           "type": "string"
+        },
+        "zones": {
+          "description": "The Availability zone in which machine is located.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [
@@ -2989,6 +3003,49 @@
       },
       "type": "object"
     },
+    "MachineNetworkProperties": {
+      "description": "network properties of the machine",
+      "properties": {
+        "enableNodePublicIP": {
+          "description": "Whether the machine is allocated its own public IP. Some scenarios may require the machine to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. The default is false.",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "nodePublicIPPrefixID": {
+          "description": "The public IP prefix ID which VM node should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}",
+          "type": "string"
+        },
+        "nodePublicIPTags": {
+          "description": "IPTags of instance-level public IPs.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/IPTag"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "podSubnetID": {
+          "description": "The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+          "type": "string"
+        },
+        "vnetSubnetID": {
+          "description": "The ID of the subnet which node and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "MachineOSProfile": {
       "description": "The operating system and disk used by the machine.",
       "properties": {
@@ -3154,6 +3211,17 @@
                 "Machines"
               ],
               "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "network": {
+          "description": "network properties of the machine",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/MachineNetworkProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -3865,6 +3933,10 @@
             }
           ]
         },
+        "nodeImageVersion": {
+          "description": "The version of node image",
+          "type": "string"
+        },
         "nodeInitializationTaints": {
           "description": "Taints added on the nodes during creation that will not be reconciled by AKS. These taints will not be reconciled by AKS and can be removed with a kubectl call. This field can be modified after node pool is created, but nodes will not be recreated with new taints until another operation that requires recreation (e.g. node image upgrade) happens. These taints allow for required configuration to run before the node is ready to accept workloads, for example 'key1=value1:NoSchedule' that then can be removed with `kubectl taint nodes node1 key1=value1:NoSchedule-`",
           "oneOf": [
@@ -4509,6 +4581,10 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ]
+        },
+        "nodeImageVersion": {
+          "description": "The version of node image",
+          "type": "string"
         },
         "nodeInitializationTaints": {
           "description": "Taints added on the nodes during creation that will not be reconciled by AKS. These taints will not be reconciled by AKS and can be removed with a kubectl call. This field can be modified after node pool is created, but nodes will not be recreated with new taints until another operation that requires recreation (e.g. node image upgrade) happens. These taints allow for required configuration to run before the node is ready to accept workloads, for example 'key1=value1:NoSchedule' that then can be removed with `kubectl taint nodes node1 key1=value1:NoSchedule-`",
@@ -8432,6 +8508,20 @@
             "machines"
           ],
           "type": "string"
+        },
+        "zones": {
+          "description": "The Availability zone in which machine is located.",
+          "oneOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
         }
       },
       "required": [

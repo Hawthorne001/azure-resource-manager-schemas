@@ -624,7 +624,7 @@
           ]
         },
         "identity": {
-          "description": "Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.",
+          "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedServiceIdentity"
@@ -701,7 +701,7 @@
           "type": "string"
         },
         "identity": {
-          "description": "Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.",
+          "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedServiceIdentity"
@@ -744,10 +744,10 @@
                 "$ref": "#/definitions/managedEnvironments_certificates_childResource"
               },
               {
-                "$ref": "#/definitions/managedEnvironments_javaComponents_childResource"
+                "$ref": "#/definitions/managedEnvironments_daprComponents_childResource"
               },
               {
-                "$ref": "#/definitions/managedEnvironments_daprComponents_childResource"
+                "$ref": "#/definitions/managedEnvironments_javaComponents_childResource"
               },
               {
                 "$ref": "#/definitions/managedEnvironments_dotNetComponents_childResource"
@@ -957,7 +957,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the Dapr subscription.",
+          "description": "Name of the Dapr Subscription.",
           "type": "string"
         },
         "properties": {
@@ -1043,7 +1043,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the Http Route Config Resource.",
+          "description": "Name of the Http Route Config.",
           "oneOf": [
             {
               "maxLength": 63,
@@ -1139,7 +1139,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the maintenance configuration.",
+          "description": "Name of the Maintenance Configuration.",
           "oneOf": [
             {
               "pattern": "^[-\\w\\._\\(\\)]+$",
@@ -1244,7 +1244,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection associated with the Azure resource.",
+          "description": "Name of the Private Endpoint Connection.",
           "type": "string"
         },
         "properties": {
@@ -1322,7 +1322,7 @@
           "type": "string"
         },
         "identity": {
-          "description": "Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.",
+          "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedServiceIdentity"
@@ -1497,7 +1497,7 @@
       "type": "object"
     },
     "AppInsightsConfiguration": {
-      "description": "Configuration of Application Insights ",
+      "description": "Configuration of Application Insights",
       "properties": {
         "connectionString": {
           "description": "Application Insights connection string",
@@ -1855,7 +1855,7 @@
       "description": "The configuration settings of the Azure Active Directory app registration.",
       "properties": {
         "clientId": {
-          "description": "The Client ID of this relying party application, known as the client_id.\nThis setting is required for enabling OpenID Connection authentication with Azure Active Directory or \nother 3rd party OpenID Connect providers.\nMore information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html",
+          "description": "The Client ID of this relying party application, known as the client_id.\nThis setting is required for enabling OpenID Connection authentication with Azure Active Directory or\nother 3rd party OpenID Connect providers.\nMore information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html",
           "type": "string"
         },
         "clientSecretCertificateIssuer": {
@@ -2202,7 +2202,8 @@
           "type": "string"
         },
         "value": {
-          "description": "PFX or PEM blob"
+          "description": "PFX or PEM blob",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2990,7 +2991,7 @@
           ]
         },
         "exposeHeaders": {
-          "description": "Specifies the content for the access-control-expose-headers header ",
+          "description": "Specifies the content for the access-control-expose-headers header",
           "oneOf": [
             {
               "items": {
@@ -3114,7 +3115,8 @@
           "type": "string"
         },
         "certificateValue": {
-          "description": "PFX or PEM blob"
+          "description": "PFX or PEM blob",
+          "type": "string"
         },
         "dnsSuffix": {
           "description": "Dns suffix for the environment domain",
@@ -3861,7 +3863,7 @@
       "type": "object"
     },
     "DataDogConfiguration": {
-      "description": "Configuration of datadog ",
+      "description": "Configuration of datadog",
       "properties": {
         "key": {
           "description": "The data dog api key",
@@ -5030,9 +5032,9 @@
           "oneOf": [
             {
               "enum": [
-                "Init",
-                "Main",
                 "None",
+                "Main",
+                "Init",
                 "All"
               ],
               "type": "string"
@@ -6046,15 +6048,7 @@
           "type": "string"
         },
         "metadata": {
-          "description": "Metadata properties to describe the scale rule.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Metadata properties to describe the scale rule."
         },
         "name": {
           "description": "Scale Rule Name",
@@ -6690,9 +6684,9 @@
           "oneOf": [
             {
               "enum": [
-                "Init",
-                "Main",
                 "None",
+                "Main",
+                "Init",
                 "All"
               ],
               "type": "string"
@@ -7034,7 +7028,7 @@
       "type": "object"
     },
     "OtlpConfiguration": {
-      "description": "Configuration of otlp ",
+      "description": "Configuration of otlp",
       "properties": {
         "endpoint": {
           "description": "The endpoint of otlp configuration",
@@ -8547,7 +8541,7 @@
           ]
         },
         "enabled": {
-          "description": "<code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.\n The default is <code>false</code>.",
+          "description": "<code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.\nThe default is <code>false</code>.",
           "oneOf": [
             {
               "type": "boolean"
@@ -8713,7 +8707,7 @@
           "type": "string"
         },
         "platformReservedDnsIP": {
-          "description": " An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.",
+          "description": "An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.",
           "type": "string"
         }
       },
@@ -9295,7 +9289,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the Dapr subscription.",
+          "description": "Name of the Dapr Subscription.",
           "type": "string"
         },
         "properties": {
@@ -9381,7 +9375,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the Http Route Config Resource.",
+          "description": "Name of the Http Route Config.",
           "oneOf": [
             {
               "maxLength": 63,
@@ -9477,7 +9471,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the maintenance configuration.",
+          "description": "Name of the Maintenance Configuration.",
           "oneOf": [
             {
               "pattern": "^[-\\w\\._\\(\\)]+$",
@@ -9582,7 +9576,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the private endpoint connection associated with the Azure resource.",
+          "description": "Name of the Private Endpoint Connection.",
           "type": "string"
         },
         "properties": {

@@ -70,7 +70,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The Azure DevOps organization name.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -119,7 +119,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The project name.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -168,7 +168,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The repository name.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -228,7 +228,7 @@
           ]
         },
         "inheritFromParentState": {
-          "description": "Update Settings.\r\n\r\nEnabled - Resource should inherit configurations from parent.\r\nDisabled - Resource should not inherit configurations from parent.",
+          "description": "Update Settings.\n\nEnabled - Resource should inherit configurations from parent.\nDisabled - Resource should not inherit configurations from parent.",
           "oneOf": [
             {
               "enum": [
@@ -243,7 +243,7 @@
           ]
         },
         "state": {
-          "description": "ActionableRemediation Setting.\r\nNone - the setting was never set.\r\nEnabled - ActionableRemediation is enabled.\r\nDisabled - ActionableRemediation is disabled.",
+          "description": "ActionableRemediation Setting.\nNone - the setting was never set.\nEnabled - ActionableRemediation is enabled.\nDisabled - ActionableRemediation is disabled.",
           "oneOf": [
             {
               "enum": [
@@ -297,7 +297,7 @@
           ]
         },
         "inventoryList": {
-          "description": "Gets or sets the inventory list for inclusion or exclusion from Agentless.\r\nWill be ignored if agentless auto-discovery is enabled.",
+          "description": "Gets or sets the inventory list for inclusion or exclusion from Agentless.\nWill be ignored if agentless auto-discovery is enabled.",
           "oneOf": [
             {
               "items": {
@@ -346,7 +346,7 @@
       "description": "Authorization payload.",
       "properties": {
         "code": {
-          "description": "Gets or sets one-time OAuth code to exchange for refresh and access tokens.\r\n\r\nOnly used during PUT/PATCH operations. The secret is cleared during GET.",
+          "description": "Gets or sets one-time OAuth code to exchange for refresh and access tokens.\n\nOnly used during PUT/PATCH operations. The secret is cleared during GET.",
           "type": "string"
         }
       },
@@ -367,7 +367,7 @@
           ]
         },
         "onboardingState": {
-          "description": "Details about resource onboarding status across all connectors.\r\n\r\nOnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.\r\nOnboarded - this resource has already been onboarded by the specified connector.\r\nNotOnboarded - this resource has not been onboarded to any connector.\r\nNotApplicable - the onboarding state is not applicable to the current endpoint.",
+          "description": "Details about resource onboarding status across all connectors.\n\nOnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.\nOnboarded - this resource has already been onboarded by the specified connector.\nNotOnboarded - this resource has not been onboarded to any connector.\nNotApplicable - the onboarding state is not applicable to the current endpoint.",
           "oneOf": [
             {
               "enum": [
@@ -401,7 +401,7 @@
           ]
         },
         "onboardingState": {
-          "description": "Details about resource onboarding status across all connectors.\r\n\r\nOnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.\r\nOnboarded - this resource has already been onboarded by the specified connector.\r\nNotOnboarded - this resource has not been onboarded to any connector.\r\nNotApplicable - the onboarding state is not applicable to the current endpoint.",
+          "description": "Details about resource onboarding status across all connectors.\n\nOnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.\nOnboarded - this resource has already been onboarded by the specified connector.\nNotOnboarded - this resource has not been onboarded to any connector.\nNotApplicable - the onboarding state is not applicable to the current endpoint.",
           "oneOf": [
             {
               "enum": [
@@ -439,7 +439,7 @@
           ]
         },
         "onboardingState": {
-          "description": "Details about resource onboarding status across all connectors.\r\n\r\nOnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.\r\nOnboarded - this resource has already been onboarded by the specified connector.\r\nNotOnboarded - this resource has not been onboarded to any connector.\r\nNotApplicable - the onboarding state is not applicable to the current endpoint.",
+          "description": "Details about resource onboarding status across all connectors.\n\nOnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.\nOnboarded - this resource has already been onboarded by the specified connector.\nNotOnboarded - this resource has not been onboarded to any connector.\nNotApplicable - the onboarding state is not applicable to the current endpoint.",
           "oneOf": [
             {
               "enum": [
@@ -470,7 +470,7 @@
       "description": "Severity level per category configuration for PR Annotations.",
       "properties": {
         "category": {
-          "description": "Rule categories.\r\nCode - code scanning results.\r\nArtifact scanning results.\r\nDependencies scanning results.\r\nIaC results.\r\nSecrets scanning results.\r\nContainer scanning results.",
+          "description": "Rule categories.\nCode - code scanning results.\nArtifact scanning results.\nDependencies scanning results.\nIaC results.\nSecrets scanning results.\nContainer scanning results.",
           "oneOf": [
             {
               "enum": [
@@ -537,7 +537,7 @@
           ]
         },
         "topLevelInventoryList": {
-          "description": "List of top-level inventory to select when AutoDiscovery is disabled.\r\nThis field is ignored when AutoDiscovery is enabled.",
+          "description": "List of top-level inventory to select when AutoDiscovery is disabled.\nThis field is ignored when AutoDiscovery is enabled.",
           "oneOf": [
             {
               "items": {
@@ -585,7 +585,7 @@
       "description": "Repository branch configuration for PR Annotations.",
       "properties": {
         "annotateDefaultBranch": {
-          "description": "Configuration of PR Annotations on default branch.\r\n\r\nEnabled - PR Annotations are enabled on the resource's default branch.\r\nDisabled - PR Annotations are disabled on the resource's default branch.",
+          "description": "Configuration of PR Annotations on default branch.\n\nEnabled - PR Annotations are enabled on the resource's default branch.\nDisabled - PR Annotations are disabled on the resource's default branch.",
           "oneOf": [
             {
               "enum": [
@@ -626,7 +626,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The Azure DevOps organization name.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -665,7 +665,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The project name.",
+          "description": "",
           "type": "string"
         },
         "properties": {
@@ -704,7 +704,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The repository name.",
+          "description": "",
           "type": "string"
         },
         "properties": {

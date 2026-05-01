@@ -3,6 +3,56 @@
   "title": "Microsoft.Resources",
   "description": "Microsoft Resources Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "tags": {
+      "description": "Microsoft.Resources/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The set of tags.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Resources/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
   "subscription_resourceDefinitions": {
     "resourceGroups": {
       "type": "object",
@@ -58,9 +108,157 @@
         "location"
       ],
       "description": "Microsoft.Resources/resourceGroups"
+    },
+    "tags": {
+      "description": "Microsoft.Resources/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The set of tags.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Resources/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "managementGroup_resourceDefinitions": {
+    "tags": {
+      "description": "Microsoft.Resources/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The set of tags.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Resources/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "tags": {
+      "description": "Microsoft.Resources/tags",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The set of tags.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Tags"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Resources/tags"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "tags": {
       "description": "Microsoft.Resources/tags",
       "properties": {

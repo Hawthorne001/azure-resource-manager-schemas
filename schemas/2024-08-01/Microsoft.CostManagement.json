@@ -3,56 +3,7 @@
   "title": "Microsoft.CostManagement",
   "description": "Microsoft CostManagement Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "extension_resourceDefinitions": {
-    "costAllocationRules": {
-      "description": "Microsoft.CostManagement/costAllocationRules",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2024-08-01"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.",
-          "oneOf": [
-            {
-              "pattern": "[A-Za-z0-9\\-_]+",
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "properties": {
-          "description": "Cost allocation rule properties",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/CostAllocationRuleProperties"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "type": {
-          "enum": [
-            "Microsoft.CostManagement/costAllocationRules"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "properties",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
-    }
-  },
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
     "budgets": {
       "description": "Microsoft.CostManagement/budgets",
       "properties": {
@@ -94,6 +45,1041 @@
         "type": {
           "enum": [
             "Microsoft.CostManagement/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with Export",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the Export's managed identity. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.CostManagement/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with Export",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the Export's managed identity. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.CostManagement/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with Export",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the Export's managed identity. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.CostManagement/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with Export",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemAssignedServiceIdentity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the Export's managed identity. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "scheduledActions": {
+      "description": "Microsoft.CostManagement/scheduledActions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of the scheduled action.",
+          "oneOf": [
+            {
+              "enum": [
+                "Email",
+                "InsightAlert"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Scheduled action name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the scheduled action.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScheduledActionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/scheduledActions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.CostManagement/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "oneOf": [
+            {
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "costAllocationRules": {
+      "description": "Microsoft.CostManagement/costAllocationRules",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.",
+          "oneOf": [
+            {
+              "pattern": "[A-Za-z0-9\\-_]+",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Cost allocation rule properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CostAllocationRuleProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/costAllocationRules"
           ],
           "type": "string"
         }

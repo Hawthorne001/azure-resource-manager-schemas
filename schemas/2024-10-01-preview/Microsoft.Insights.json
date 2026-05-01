@@ -14,7 +14,7 @@
           "type": "string"
         },
         "identity": {
-          "description": "Managed service identity (system assigned and/or user assigned identities)",
+          "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
               "$ref": "#/definitions/ManagedServiceIdentity"
@@ -25,7 +25,7 @@
           ]
         },
         "location": {
-          "description": "Resource location",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -44,7 +44,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -319,7 +319,7 @@
           ]
         },
         "managedIdentity": {
-          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\" ",
+          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\"",
           "type": "string"
         },
         "name": {
@@ -393,7 +393,7 @@
           "type": "string"
         },
         "managedIdentity": {
-          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\" ",
+          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\"",
           "type": "string"
         },
         "name": {
@@ -463,7 +463,7 @@
           "type": "string"
         },
         "managedIdentity": {
-          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\" ",
+          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\"",
           "type": "string"
         },
         "name": {
@@ -614,7 +614,7 @@
           "type": "string"
         },
         "managedIdentity": {
-          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\" ",
+          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\"",
           "type": "string"
         },
         "name": {
@@ -745,7 +745,7 @@
           "type": "string"
         },
         "managedIdentity": {
-          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\" ",
+          "description": "The principal id of the managed identity. The value can be \"None\", \"SystemAssigned\"",
           "type": "string"
         },
         "name": {

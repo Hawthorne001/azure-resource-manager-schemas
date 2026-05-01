@@ -3,7 +3,7 @@
   "title": "Microsoft.Security",
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
     "customRecommendations": {
       "description": "Microsoft.Security/customRecommendations",
       "properties": {
@@ -76,7 +76,579 @@
           "description": "Properties of a security standard",
           "oneOf": [
             {
-              "$ref": "#/definitions/StandardProperties"
+              "$ref": "#/definitions/SecurityStandardProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/securityStandards"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "standardAssignments": {
+      "description": "Microsoft.Security/standardAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The standard assignments assignment key - unique key for the standard assignment",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a standard assignments assignment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandardAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/standardAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "customRecommendations": {
+      "description": "Microsoft.Security/customRecommendations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Custom Recommendation.",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "describes Custom Recommendation properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomRecommendationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/customRecommendations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "securityStandards": {
+      "description": "Microsoft.Security/securityStandards",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Security Standard key - unique key for the standard type",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a security standard",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityStandardProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/securityStandards"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "standardAssignments": {
+      "description": "Microsoft.Security/standardAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The standard assignments assignment key - unique key for the standard assignment",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a standard assignments assignment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandardAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/standardAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "customRecommendations": {
+      "description": "Microsoft.Security/customRecommendations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Custom Recommendation.",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "describes Custom Recommendation properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomRecommendationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/customRecommendations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "securityStandards": {
+      "description": "Microsoft.Security/securityStandards",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Security Standard key - unique key for the standard type",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a security standard",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityStandardProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/securityStandards"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "standardAssignments": {
+      "description": "Microsoft.Security/standardAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The standard assignments assignment key - unique key for the standard assignment",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a standard assignments assignment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandardAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/standardAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "customRecommendations": {
+      "description": "Microsoft.Security/customRecommendations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Custom Recommendation.",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "describes Custom Recommendation properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomRecommendationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/customRecommendations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "securityStandards": {
+      "description": "Microsoft.Security/securityStandards",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Security Standard key - unique key for the standard type",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a security standard",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityStandardProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/securityStandards"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "standardAssignments": {
+      "description": "Microsoft.Security/standardAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The standard assignments assignment key - unique key for the standard assignment",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a standard assignments assignment",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandardAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/standardAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
+    "customRecommendations": {
+      "description": "Microsoft.Security/customRecommendations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the Custom Recommendation.",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "describes Custom Recommendation properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomRecommendationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/customRecommendations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "securityStandards": {
+      "description": "Microsoft.Security/securityStandards",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-08-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Security Standard key - unique key for the standard type",
+          "oneOf": [
+            {
+              "pattern": "[{]?[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of a security standard",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityStandardProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -157,16 +729,6 @@
       },
       "type": "object"
     },
-    "AssignedStandardItem": {
-      "description": "Describe the properties of a of a standard assignments object reference",
-      "properties": {
-        "id": {
-          "description": "Full resourceId of the Microsoft.Security/standard object",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "AttestationEvidence": {
       "description": "Describe the properties of a assignment attestation",
       "properties": {
@@ -176,6 +738,16 @@
         },
         "sourceUrl": {
           "description": "The source url of the evidence",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CommonAssignedStandardItem": {
+      "description": "Describe the properties of a of a standard assignments object reference",
+      "properties": {
+        "id": {
+          "description": "Full resourceId of the Microsoft.Security/standard object",
           "type": "string"
         }
       },
@@ -267,6 +839,68 @@
       },
       "type": "object"
     },
+    "SecurityStandardProperties": {
+      "description": "Describes properties of a standard.",
+      "properties": {
+        "assessments": {
+          "description": "List of assessment keys to apply to standard scope.",
+          "oneOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/PartialAssessmentProperties"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "cloudProviders": {
+          "description": "List of all standard supported clouds.",
+          "oneOf": [
+            {
+              "items": {
+                "enum": [
+                  "Azure",
+                  "AWS",
+                  "GCP"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "description": {
+          "description": "Description of the standard",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Display name of the standard, equivalent to the standardId",
+          "type": "string"
+        },
+        "metadata": {
+          "description": "The security standard metadata.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StandardMetadata"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "policySetDefinitionId": {
+          "description": "The policy set definition id associated with the standard.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "StandardAssignmentMetadata": {
       "description": "The standard assignment metadata",
       "properties": {},
@@ -279,7 +913,7 @@
           "description": "Standard item with key as applied to this standard assignment over the given scope",
           "oneOf": [
             {
-              "$ref": "#/definitions/AssignedStandardItem"
+              "$ref": "#/definitions/CommonAssignedStandardItem"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -447,68 +1081,6 @@
     "StandardMetadata": {
       "description": "The standard metadata",
       "properties": {},
-      "type": "object"
-    },
-    "StandardProperties": {
-      "description": "Describes properties of a standard.",
-      "properties": {
-        "assessments": {
-          "description": "List of assessment keys to apply to standard scope.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/PartialAssessmentProperties"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "cloudProviders": {
-          "description": "List of all standard supported clouds.",
-          "oneOf": [
-            {
-              "items": {
-                "enum": [
-                  "Azure",
-                  "AWS",
-                  "GCP"
-                ],
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "description": {
-          "description": "Description of the standard",
-          "type": "string"
-        },
-        "displayName": {
-          "description": "Display name of the standard, equivalent to the standardId",
-          "type": "string"
-        },
-        "metadata": {
-          "description": "The security standard metadata.",
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StandardMetadata"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "policySetDefinitionId": {
-          "description": "The policy set definition id associated with the standard.",
-          "type": "string"
-        }
-      },
       "type": "object"
     }
   }

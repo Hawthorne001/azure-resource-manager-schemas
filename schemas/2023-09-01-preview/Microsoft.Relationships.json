@@ -3,7 +3,391 @@
   "title": "Microsoft.Relationships",
   "description": "Microsoft Relationships Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "dependencyOf": {
+      "description": "Microsoft.Relationships/dependencyOf",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of dependencyOf relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DependencyOfRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/dependencyOf"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "serviceGroupMember": {
+      "description": "Microsoft.Relationships/serviceGroupMember",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of ServiceGroupMember relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceGroupMemberRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/serviceGroupMember"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "dependencyOf": {
+      "description": "Microsoft.Relationships/dependencyOf",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of dependencyOf relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DependencyOfRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/dependencyOf"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "serviceGroupMember": {
+      "description": "Microsoft.Relationships/serviceGroupMember",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of ServiceGroupMember relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceGroupMemberRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/serviceGroupMember"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "dependencyOf": {
+      "description": "Microsoft.Relationships/dependencyOf",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of dependencyOf relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DependencyOfRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/dependencyOf"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "serviceGroupMember": {
+      "description": "Microsoft.Relationships/serviceGroupMember",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of ServiceGroupMember relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceGroupMemberRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/serviceGroupMember"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "dependencyOf": {
+      "description": "Microsoft.Relationships/dependencyOf",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of dependencyOf relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DependencyOfRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/dependencyOf"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "serviceGroupMember": {
+      "description": "Microsoft.Relationships/serviceGroupMember",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of ServiceGroupMember relationship.",
+          "oneOf": [
+            {
+              "pattern": "^[a-zA-Z0-9]{3,64}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceGroupMemberRelationshipProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Relationships/serviceGroupMember"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "dependencyOf": {
       "description": "Microsoft.Relationships/dependencyOf",
       "properties": {

@@ -14,7 +14,7 @@
           "type": "string"
         },
         "location": {
-          "description": "Resource location",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -33,7 +33,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -99,7 +99,7 @@
           "description": "the retention policy for the events in the log.",
           "oneOf": [
             {
-              "$ref": "#/definitions/RetentionPolicy"
+              "$ref": "#/definitions/MicrosoftCommonRetentionPolicy"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -122,7 +122,7 @@
       ],
       "type": "object"
     },
-    "RetentionPolicy": {
+    "MicrosoftCommonRetentionPolicy": {
       "description": "Specifies the retention policy for the log.",
       "properties": {
         "days": {

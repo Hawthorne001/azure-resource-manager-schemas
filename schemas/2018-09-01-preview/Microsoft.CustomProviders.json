@@ -4,6 +4,45 @@
   "description": "Microsoft CustomProviders Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "associations": {
+      "description": "Microsoft.CustomProviders/associations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the association.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CustomProviders/associations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "resourceProviders": {
       "description": "Microsoft.CustomProviders/resourceProviders",
       "properties": {
@@ -65,7 +104,130 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "associations": {
+      "description": "Microsoft.CustomProviders/associations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the association.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CustomProviders/associations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "associations": {
+      "description": "Microsoft.CustomProviders/associations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the association.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CustomProviders/associations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "associations": {
+      "description": "Microsoft.CustomProviders/associations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2018-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the association.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CustomProviders/associations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "associations": {
       "description": "Microsoft.CustomProviders/associations",
       "properties": {

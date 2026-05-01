@@ -40,7 +40,7 @@
           ]
         },
         "location": {
-          "description": "The geo-location where the resource lives.",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -98,6 +98,44 @@
       ],
       "type": "object"
     },
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-03-11"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "dataCollectionRules": {
       "description": "Microsoft.Insights/dataCollectionRules",
       "properties": {
@@ -134,7 +172,7 @@
           ]
         },
         "location": {
-          "description": "The geo-location where the resource lives.",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -193,7 +231,127 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-03-11"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-03-11"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-03-11"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "dataCollectionRuleAssociations": {
       "description": "Microsoft.Insights/dataCollectionRuleAssociations",
       "properties": {
@@ -242,7 +400,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "resourceId": {
@@ -256,7 +414,7 @@
       "description": "A setting used to control an agent behavior on a host machine",
       "properties": {
         "name": {
-          "description": "The name of the setting. \r\nMust be part of the list of supported settings",
+          "description": "The name of the setting.\nMust be part of the list of supported settings",
           "oneOf": [
             {
               "enum": [
@@ -479,7 +637,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the SKU. E.g. P3. It is typically a letter+number code",
+          "description": "The name of the SKU. Ex - P3. It is typically a letter+number code",
           "type": "string"
         },
         "size": {
@@ -547,7 +705,7 @@
       "type": "object"
     },
     "DataCollectionRuleDataSources": {
-      "description": "The specification of data sources. \r\n This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
+      "description": "The specification of data sources.\nThis property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
       "properties": {
         "dataImports": {
           "description": "Specifications of pull based data sources",
@@ -903,7 +1061,7 @@
       "type": "object"
     },
     "DataCollectionRuleDirectDataSources": {
-      "description": "The specification of direct data sources. \r\n This property is optional and can be omitted.",
+      "description": "The specification of direct data sources.\nThis property is optional and can be omitted.",
       "properties": {
         "otelLogs": {
           "description": "The list of OTel logs data source configurations.",
@@ -1054,7 +1212,7 @@
           ]
         },
         "dataSources": {
-          "description": "The specification of data sources. \r\n This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
+          "description": "The specification of data sources.\nThis property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.",
           "oneOf": [
             {
               "$ref": "#/definitions/DataCollectionRuleDataSources"
@@ -1080,7 +1238,7 @@
           ]
         },
         "directDataSources": {
-          "description": "The specification of direct data sources. \r\n This property is optional and can be omitted.",
+          "description": "The specification of direct data sources.\nThis property is optional and can be omitted.",
           "oneOf": [
             {
               "$ref": "#/definitions/DataCollectionRuleDirectDataSources"
@@ -1138,7 +1296,7 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the SKU. E.g. P3. It is typically a letter+number code",
+          "description": "The name of the SKU. Ex - P3. It is typically a letter+number code",
           "type": "string"
         },
         "size": {
@@ -1240,7 +1398,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the data source. \r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "stream": {
@@ -1271,7 +1429,7 @@
       "description": "Azure Monitor Metrics destination.",
       "properties": {
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         }
       },
@@ -1317,7 +1475,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "provider": {
@@ -1368,7 +1526,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         }
       },
@@ -1381,29 +1539,21 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "ExtensionDataSource": {
-      "description": "Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.\r\nCollected from either Windows and Linux machines, depending on which extension is defined.",
+      "description": "Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.\nCollected from either Windows and Linux machines, depending on which extension is defined.",
       "properties": {
         "extensionName": {
           "description": "The name of the VM extension.",
           "type": "string"
         },
         "extensionSettings": {
-          "description": "The extension settings. The format is specific for particular extension.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "The extension settings. The format is specific for particular extension."
         },
         "inputDataSources": {
           "description": "The list of data sources this extension needs data from.",
@@ -1420,11 +1570,11 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -1468,7 +1618,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
@@ -1499,7 +1649,7 @@
       "description": "Log Analytics destination.",
       "properties": {
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "workspaceResourceId": {
@@ -1573,7 +1723,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "settings": {
@@ -1588,7 +1738,7 @@
           ]
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data source",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data source",
           "oneOf": [
             {
               "items": {
@@ -1646,7 +1796,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "tenantId": {
@@ -1664,7 +1814,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         }
       },
@@ -1692,7 +1842,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "replaceResourceIdWithReference": {
@@ -1775,7 +1925,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "replaceResourceIdWithReference": {
@@ -1834,7 +1984,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "resourceAttributeRouting": {
@@ -1904,7 +2054,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
@@ -1949,7 +2099,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "replaceResourceIdWithReference": {
@@ -1975,7 +2125,7 @@
           ]
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -2035,7 +2185,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "replaceResourceIdWithReference": {
@@ -2050,7 +2200,7 @@
           ]
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -2075,10 +2225,10 @@
       "type": "object"
     },
     "PerfCounterDataSource": {
-      "description": "Definition of which performance counters will be collected and how they will be collected by this data collection rule.\r\nCollected from both Windows and Linux machines where the counter is present.",
+      "description": "Definition of which performance counters will be collected and how they will be collected by this data collection rule.\nCollected from both Windows and Linux machines where the counter is present.",
       "properties": {
         "counterSpecifiers": {
-          "description": "A list of specifier names of the performance counters you want to collect.\r\nUse a wildcard (*) to collect a counter for all instances.\r\nTo get a list of performance counters on Windows, run the command 'typeperf'.",
+          "description": "A list of specifier names of the performance counters you want to collect.\nUse a wildcard (*) to collect a counter for all instances.\nTo get a list of performance counters on Windows, run the command 'typeperf'.",
           "oneOf": [
             {
               "items": {
@@ -2092,7 +2242,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "samplingFrequencyInSeconds": {
@@ -2107,7 +2257,7 @@
           ]
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -2132,7 +2282,7 @@
       "type": "object"
     },
     "PerformanceCountersOTelDataSource": {
-      "description": "Definition of which Open Telemetry performance counters will be collected and how they will be collected by this data collection rule.\r\nCollected from both Windows and Linux machines where the counter is present.",
+      "description": "Definition of which Open Telemetry performance counters will be collected and how they will be collected by this data collection rule.\nCollected from both Windows and Linux machines where the counter is present.",
       "properties": {
         "counterSpecifiers": {
           "description": "A list of specifier names of the performance counters you want to collect.",
@@ -2149,7 +2299,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "samplingFrequencyInSeconds": {
@@ -2164,7 +2314,7 @@
           ]
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -2187,7 +2337,7 @@
       "description": "Definition of platform telemetry data source configuration",
       "properties": {
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
@@ -2217,9 +2367,7 @@
           "description": "Custom VM Scrape Config that defines scrape jobs",
           "oneOf": [
             {
-              "items": {
-                "type": "object"
-              },
+              "items": {},
               "type": "array"
             },
             {
@@ -2228,7 +2376,7 @@
           ]
         },
         "labelIncludeFilter": {
-          "description": "The list of label inclusion filters in the form of label \"name-value\" pairs.\r\nCurrently only one label is supported: 'microsoft_metrics_include_label'.\r\nLabel values are matched case-insensitively.",
+          "description": "The list of label inclusion filters in the form of label \"name-value\" pairs.\nCurrently only one label is supported: 'microsoft_metrics_include_label'.\nLabel values are matched case-insensitively.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -2243,7 +2391,7 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
@@ -2325,7 +2473,7 @@
           "type": "string"
         },
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "storageAccountResourceId": {
@@ -2338,7 +2486,7 @@
     "StorageTableDestination": {
       "properties": {
         "name": {
-          "description": "A friendly name for the destination. \r\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the destination.\nThis name should be unique across all destinations (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "storageAccountResourceId": {
@@ -2373,7 +2521,7 @@
       "type": "object"
     },
     "SyslogDataSource": {
-      "description": "Definition of which syslog data will be collected and how it will be collected.\r\nOnly collected from Linux machines.",
+      "description": "Definition of which syslog data will be collected and how it will be collected.\nOnly collected from Linux machines.",
       "properties": {
         "facilityNames": {
           "description": "The list of facility names.",
@@ -2444,11 +2592,11 @@
           ]
         },
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -2477,14 +2625,14 @@
       "type": "object"
     },
     "WindowsEventLogDataSource": {
-      "description": "Definition of which Windows Event Log events will be collected and how they will be collected.\r\nOnly collected from Windows machines.",
+      "description": "Definition of which Windows Event Log events will be collected and how they will be collected.\nOnly collected from Windows machines.",
       "properties": {
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "streams": {
-          "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
+          "description": "List of streams that this data source will be sent to.\nA stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.",
           "oneOf": [
             {
               "items": {
@@ -2526,7 +2674,7 @@
       "description": "Enables Firewall logs to be collected by this data collection rule.",
       "properties": {
         "name": {
-          "description": "A friendly name for the data source.\r\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
+          "description": "A friendly name for the data source.\nThis name should be unique across all data sources (regardless of type) within the data collection rule.",
           "type": "string"
         },
         "profileFilter": {

@@ -3,7 +3,187 @@
   "title": "Microsoft.Consumption",
   "description": "Microsoft Consumption Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.Consumption/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Consumption/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.Consumption/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Consumption/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.Consumption/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Consumption/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "budgets": {
+      "description": "Microsoft.Consumption/budgets",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-05-01"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Budget Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the budget.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BudgetProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Consumption/budgets"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "budgets": {
       "description": "Microsoft.Consumption/budgets",
       "properties": {

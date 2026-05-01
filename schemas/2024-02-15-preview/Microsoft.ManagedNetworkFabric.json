@@ -30,7 +30,7 @@
           ]
         },
         "properties": {
-          "description": "The Access ControlList properties",
+          "description": "The Access ControlList properties.",
           "oneOf": [
             {
               "$ref": "#/definitions/AccessControlListProperties"
@@ -1109,7 +1109,7 @@
           ]
         },
         "properties": {
-          "description": "The NetworkRack properties",
+          "description": "Network Rack Properties",
           "oneOf": [
             {
               "$ref": "#/definitions/NetworkRackProperties"
