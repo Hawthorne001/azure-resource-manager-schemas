@@ -6,6 +6,7 @@ import { replaceCyclicRefByName } from './helpers';
 export const postProcessor: SchemaPostProcessor = async (namespace, apiVersion, schema) => {
   replaceCyclicRefByName(schema, 'PublicIPAddress', { type: 'object' });
   replaceCyclicRefByName(schema, 'CommonPublicIPAddress', { type: 'object' });
+  replaceCyclicRefByName(schema, 'CommonNetworkInterfaceIPConfiguration', { type: 'object' });
   replaceCyclicRefByName(schema, 'NetworkInterface', { type: 'object' });
   replaceCyclicRefByName(schema, 'NetworkSecurityGroup', { type: 'object' });
   replaceCyclicRefByName(schema, 'RouteTable', { type: 'object' });
