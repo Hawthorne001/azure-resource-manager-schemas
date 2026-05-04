@@ -123,8 +123,6 @@ const schemasToSkip = [
   '2018-05-01/subscriptionDeploymentTemplate.json',
   '2019-04-01/deploymentParameters.json',
   '2019-04-01/deploymentTemplate.json',
-  '2019-03-01-hybrid/deploymentTemplate.json',
-  '2019-03-01-hybrid/deploymentParameters.json',
   '2019-08-01/managementGroupDeploymentParameters.json',
   '2019-08-01/managementGroupDeploymentTemplate.json',
   '2019-08-01/tenantDeploymentParameters.json',
