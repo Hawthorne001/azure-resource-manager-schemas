@@ -3,7 +3,7 @@
   "title": "Microsoft.Resources",
   "description": "Microsoft Resources Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "tenant_resourceDefinitions": {
     "dataBoundaries": {
       "description": "Microsoft.Resources/dataBoundaries",
       "properties": {

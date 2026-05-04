@@ -3,6 +3,47 @@
   "title": "Microsoft.Security",
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Assessment Key - Unique key for the assessment type",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Describes properties of an assessment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/assessments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
   "subscription_resourceDefinitions": {
     "assessmentMetadata": {
       "description": "Microsoft.Security/assessmentMetadata",
@@ -31,6 +72,45 @@
         "type": {
           "enum": [
             "Microsoft.Security/assessmentMetadata"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Assessment Key - Unique key for the assessment type",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Describes properties of an assessment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/assessments"
           ],
           "type": "string"
         }
@@ -83,9 +163,9 @@
       "type": "object"
     }
   },
-  "tenant_resourceDefinitions": {
-    "assessmentMetadata": {
-      "description": "Microsoft.Security/assessmentMetadata",
+  "managementGroup_resourceDefinitions": {
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -98,10 +178,10 @@
           "type": "string"
         },
         "properties": {
-          "description": "Describes properties of an assessment metadata response.",
+          "description": "Describes properties of an assessment.",
           "oneOf": [
             {
-              "$ref": "#/definitions/SecurityAssessmentMetadataPropertiesResponse"
+              "$ref": "#/definitions/SecurityAssessmentProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -110,7 +190,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Security/assessmentMetadata"
+            "Microsoft.Security/assessments"
           ],
           "type": "string"
         }
@@ -124,7 +204,48 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "tenant_resourceDefinitions": {
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2021-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Assessment Key - Unique key for the assessment type",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Describes properties of an assessment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/assessments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "assessments": {
       "description": "Microsoft.Security/assessments",
       "properties": {

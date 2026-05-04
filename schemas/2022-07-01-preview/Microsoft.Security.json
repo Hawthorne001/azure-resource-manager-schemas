@@ -93,9 +93,7 @@
           "description": "The application conditionSets - see examples",
           "oneOf": [
             {
-              "items": {
-                "type": "object"
-              },
+              "items": {},
               "type": "array"
             },
             {

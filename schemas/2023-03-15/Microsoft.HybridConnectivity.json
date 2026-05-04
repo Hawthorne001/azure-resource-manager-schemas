@@ -3,7 +3,367 @@
   "title": "Microsoft.HybridConnectivity",
   "description": "Microsoft HybridConnectivity Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "endpoints": {
+      "description": "Microsoft.HybridConnectivity/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The endpoint name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The endpoint properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/endpoints_serviceConfigurations_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "endpoints_serviceConfigurations": {
+      "description": "Microsoft.HybridConnectivity/endpoints/serviceConfigurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The service name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The service configuration properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints/serviceConfigurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "endpoints": {
+      "description": "Microsoft.HybridConnectivity/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The endpoint name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The endpoint properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/endpoints_serviceConfigurations_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "endpoints_serviceConfigurations": {
+      "description": "Microsoft.HybridConnectivity/endpoints/serviceConfigurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The service name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The service configuration properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints/serviceConfigurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "endpoints": {
+      "description": "Microsoft.HybridConnectivity/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The endpoint name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The endpoint properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/endpoints_serviceConfigurations_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "endpoints_serviceConfigurations": {
+      "description": "Microsoft.HybridConnectivity/endpoints/serviceConfigurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The service name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The service configuration properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints/serviceConfigurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "endpoints": {
+      "description": "Microsoft.HybridConnectivity/endpoints",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The endpoint name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The endpoint properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EndpointProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/endpoints_serviceConfigurations_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "endpoints_serviceConfigurations": {
+      "description": "Microsoft.HybridConnectivity/endpoints/serviceConfigurations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-03-15"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The service name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The service configuration properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridConnectivity/endpoints/serviceConfigurations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "endpoints": {
       "description": "Microsoft.HybridConnectivity/endpoints",
       "properties": {

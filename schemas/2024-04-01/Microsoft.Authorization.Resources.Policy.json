@@ -3,7 +3,263 @@
   "title": "Microsoft.Authorization",
   "description": "Microsoft Authorization Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-04-01"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the policy assignment. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "oneOf": [
+            {
+              "pattern": "^[^<>*%&:\\?.+/]*[^<>*%&:\\?.+/ ]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-04-01"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the policy assignment. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "oneOf": [
+            {
+              "pattern": "^[^<>*%&:\\?.+/]*[^<>*%&:\\?.+/ ]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-04-01"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the policy assignment. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "oneOf": [
+            {
+              "pattern": "^[^<>*%&:\\?.+/]*[^<>*%&:\\?.+/ ]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-04-01"
+          ],
+          "type": "string"
+        },
+        "identity": {
+          "description": "The managed identity associated with the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "location": {
+          "description": "The location of the policy assignment. Only required when utilizing managed identity.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "oneOf": [
+            {
+              "pattern": "^[^<>*%&:\\?.+/]*[^<>*%&:\\?.+/ ]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "policyAssignments": {
       "description": "Microsoft.Authorization/policyAssignments",
       "properties": {

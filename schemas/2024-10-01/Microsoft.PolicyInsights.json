@@ -3,7 +3,327 @@
   "title": "Microsoft.PolicyInsights",
   "description": "Microsoft PolicyInsights Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "attestations": {
+      "description": "Microsoft.PolicyInsights/attestations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the attestation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the attestation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AttestationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/attestations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "attestations": {
+      "description": "Microsoft.PolicyInsights/attestations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the attestation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the attestation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AttestationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/attestations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "attestations": {
+      "description": "Microsoft.PolicyInsights/attestations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the attestation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the attestation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AttestationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/attestations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "attestations": {
+      "description": "Microsoft.PolicyInsights/attestations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the attestation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the attestation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AttestationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/attestations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "remediations": {
+      "description": "Microsoft.PolicyInsights/remediations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-10-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the remediation.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the remediation.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RemediationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.PolicyInsights/remediations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "attestations": {
       "description": "Microsoft.PolicyInsights/attestations",
       "properties": {
@@ -146,15 +466,7 @@
           "type": "string"
         },
         "metadata": {
-          "description": "Additional metadata for this attestation",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Additional metadata for this attestation"
         },
         "owner": {
           "description": "The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.",

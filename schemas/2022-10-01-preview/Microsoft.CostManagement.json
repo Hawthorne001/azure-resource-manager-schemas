@@ -3,7 +3,351 @@
   "title": "Microsoft.CostManagement",
   "description": "Microsoft CostManagement Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "settings": {
+      "description": "Microsoft.CostManagement/settings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Setting type.",
+          "oneOf": [
+            {
+              "enum": [
+                "taginheritance"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/settings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "views": {
+      "description": "Microsoft.CostManagement/views",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "eTag": {
+          "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+          "type": "string"
+        },
+        "name": {
+          "description": "View name",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the view.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ViewProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/views"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "settings": {
       "description": "Microsoft.CostManagement/settings",
       "properties": {

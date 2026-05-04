@@ -88,6 +88,7 @@
           "type": "string"
         },
         "location": {
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -130,7 +131,7 @@
           ]
         },
         "tags": {
-          "description": "Dictionary of <string>",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -173,6 +174,7 @@
           "type": "string"
         },
         "location": {
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -194,17 +196,17 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "#/definitions/services_projects_tasks_childResource"
+                "$ref": "#/definitions/services_projects_files_childResource"
               },
               {
-                "$ref": "#/definitions/services_projects_files_childResource"
+                "$ref": "#/definitions/services_projects_tasks_childResource"
               }
             ]
           },
           "type": "array"
         },
         "tags": {
-          "description": "Dictionary of <string>",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -372,6 +374,7 @@
           "type": "string"
         },
         "location": {
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -390,7 +393,7 @@
           ]
         },
         "tags": {
-          "description": "Dictionary of <string>",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -1026,7 +1029,7 @@
               "type": "string"
             },
             "dataSource": {
-              "description": "Data source ",
+              "description": "Data source",
               "type": "string"
             },
             "encryptConnection": {
@@ -1077,7 +1080,6 @@
               "description": "Whether to trust the server certificate",
               "oneOf": [
                 {
-                  "default": false,
                   "type": "boolean"
                 },
                 {
@@ -1124,7 +1126,7 @@
               ]
             },
             "dataSource": {
-              "description": "Data source ",
+              "description": "Data source",
               "type": "string"
             },
             "encryptConnection": {
@@ -1251,7 +1253,7 @@
               ]
             },
             "dataSource": {
-              "description": "Data source ",
+              "description": "Data source",
               "type": "string"
             },
             "databaseName": {
@@ -1297,7 +1299,6 @@
               "description": "Whether to trust the server certificate",
               "oneOf": [
                 {
-                  "default": false,
                   "type": "boolean"
                 },
                 {
@@ -1405,7 +1406,6 @@
               "description": "Whether to trust the server certificate",
               "oneOf": [
                 {
-                  "default": false,
                   "type": "boolean"
                 },
                 {
@@ -1509,7 +1509,8 @@
                 "SqlMi",
                 "SqlVm",
                 "SqlDb",
-                "MongoToCosmosDbMongo"
+                "MongoToCosmosDbMongo",
+                "DatabaseMigrationProperties"
               ],
               "type": "string"
             },
@@ -1912,7 +1913,6 @@
           "description": "Setting to set the source server read only",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -2473,15 +2473,7 @@
           "type": "string"
         },
         "schemaSetting": {
-          "description": "Settings selected for DB schema migration.",
-          "oneOf": [
-            {
-              "type": "object"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
+          "description": "Settings selected for DB schema migration."
         },
         "tableMap": {
           "description": "Mapping of source to target tables",
@@ -2693,7 +2685,7 @@
           ]
         },
         "validationOptions": {
-          "description": "Options for enabling various post migration validations. Available options, \n 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. \n 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.",
+          "description": "Options for enabling various post migration validations. Available options,\n1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.\n2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.",
           "oneOf": [
             {
               "$ref": "#/definitions/MigrationValidationOptions"
@@ -3170,7 +3162,7 @@
           "type": "string"
         },
         "dataSource": {
-          "description": "Data source ",
+          "description": "Data source",
           "type": "string"
         },
         "encryptConnection": {
@@ -3225,7 +3217,6 @@
           "description": "Whether to trust the server certificate",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -3520,7 +3511,7 @@
           ]
         },
         "dataSource": {
-          "description": "Data source ",
+          "description": "Data source",
           "type": "string"
         },
         "encryptConnection": {
@@ -3659,7 +3650,7 @@
           ]
         },
         "dataSource": {
-          "description": "Data source ",
+          "description": "Data source",
           "type": "string"
         },
         "databaseName": {
@@ -3709,7 +3700,6 @@
           "description": "Whether to trust the server certificate",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -3967,7 +3957,7 @@
               ]
             },
             "taskId": {
-              "description": "Task id ",
+              "description": "Task id",
               "type": "string"
             },
             "taskType": {
@@ -4261,7 +4251,7 @@
               ]
             },
             "taskId": {
-              "description": "Task id ",
+              "description": "Task id",
               "type": "string"
             },
             "taskType": {
@@ -4406,7 +4396,7 @@
               ]
             },
             "taskId": {
-              "description": "Task id ",
+              "description": "Task id",
               "type": "string"
             },
             "taskType": {
@@ -4724,7 +4714,7 @@
               ]
             },
             "taskId": {
-              "description": "Task id ",
+              "description": "Task id",
               "type": "string"
             },
             "taskType": {
@@ -5138,7 +5128,6 @@
           "description": "Whether to trust the server certificate",
           "oneOf": [
             {
-              "default": false,
               "type": "boolean"
             },
             {
@@ -5468,6 +5457,7 @@
           "type": "string"
         },
         "location": {
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -5486,7 +5476,7 @@
           ]
         },
         "tags": {
-          "description": "Dictionary of <string>",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {

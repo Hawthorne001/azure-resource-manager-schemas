@@ -1933,6 +1933,7 @@
         }
       },
       "required": [
+        "site",
         "domain",
         "secretPassword"
       ],
@@ -3948,7 +3949,7 @@
           ]
         },
         "peerClusterName": {
-          "description": "ONTAP cluster name of external cluster hosting the origin volume",
+          "description": "ONTAP cluster name of external cluster hosting the origin volume. Must match the exact cluster name.",
           "type": "string"
         },
         "peerVolumeName": {

@@ -75,33 +75,6 @@
         "type"
       ],
       "type": "object"
-    },
-    "externalSubscriptions": {
-      "description": "Microsoft.CostManagement/externalSubscriptions",
-      "properties": {
-        "apiVersion": {
-          "enum": [
-            "2019-03-01-preview"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "description": "External Subscription Name. (eg 'aws-{UsageAccountId}')",
-          "type": "string"
-        },
-        "type": {
-          "enum": [
-            "Microsoft.CostManagement/externalSubscriptions"
-          ],
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "apiVersion",
-        "type"
-      ],
-      "type": "object"
     }
   },
   "extension_resourceDefinitions": {

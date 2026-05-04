@@ -3,7 +3,109 @@
   "title": "Microsoft.Authorization",
   "description": "Microsoft Authorization Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The policy sku.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicySku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
   "subscription_resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The policy sku.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicySku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "policySetDefinitions": {
       "description": "Microsoft.Authorization/policySetDefinitions",
       "properties": {
@@ -45,6 +147,56 @@
     }
   },
   "managementGroup_resourceDefinitions": {
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2017-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the policy assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Properties for the policy assignment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The policy sku.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicySku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/policyAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "policySetDefinitions": {
       "description": "Microsoft.Authorization/policySetDefinitions",
       "properties": {
@@ -86,8 +238,8 @@
     }
   },
   "tenant_resourceDefinitions": {
-    "policySetDefinitions": {
-      "description": "Microsoft.Authorization/policySetDefinitions",
+    "policyAssignments": {
+      "description": "Microsoft.Authorization/policyAssignments",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -96,14 +248,25 @@
           "type": "string"
         },
         "name": {
-          "description": "The name of the policy set definition to create.",
+          "description": "The name of the policy assignment.",
           "type": "string"
         },
         "properties": {
-          "description": "The policy definition properties.",
+          "description": "Properties for the policy assignment.",
           "oneOf": [
             {
-              "$ref": "#/definitions/PolicySetDefinitionProperties"
+              "$ref": "#/definitions/PolicyAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "sku": {
+          "description": "The policy sku.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PolicySku"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -112,7 +275,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Authorization/policySetDefinitions"
+            "Microsoft.Authorization/policyAssignments"
           ],
           "type": "string"
         }
@@ -126,7 +289,7 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "extension_resourceDefinitions": {
     "policyAssignments": {
       "description": "Microsoft.Authorization/policyAssignments",
       "properties": {

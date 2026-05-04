@@ -3,7 +3,171 @@
   "title": "Microsoft.Authorization",
   "description": "Microsoft Authorization Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "roleAssignments": {
+      "description": "Microsoft.Authorization/roleAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "roleAssignments": {
+      "description": "Microsoft.Authorization/roleAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "roleAssignments": {
+      "description": "Microsoft.Authorization/roleAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "roleAssignments": {
+      "description": "Microsoft.Authorization/roleAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2020-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "A GUID for the role assignment to create. The name must be unique and different for each role assignment.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role assignment properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "roleAssignments": {
       "description": "Microsoft.Authorization/roleAssignments",
       "properties": {

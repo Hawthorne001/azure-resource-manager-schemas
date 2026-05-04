@@ -174,9 +174,187 @@
         "type"
       ],
       "type": "object"
+    },
+    "scopeAssignments": {
+      "description": "Microsoft.ManagedNetwork/scopeAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the scope assignment to create.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Scope Assignment properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScopeAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedNetwork/scopeAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "scopeAssignments": {
+      "description": "Microsoft.ManagedNetwork/scopeAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the scope assignment to create.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Scope Assignment properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScopeAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedNetwork/scopeAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "scopeAssignments": {
+      "description": "Microsoft.ManagedNetwork/scopeAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the scope assignment to create.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Scope Assignment properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScopeAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedNetwork/scopeAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "scopeAssignments": {
+      "description": "Microsoft.ManagedNetwork/scopeAssignments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "The geo-location where the resource lives",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the scope assignment to create.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The Scope Assignment properties",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScopeAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ManagedNetwork/scopeAssignments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "scopeAssignments": {
       "description": "Microsoft.ManagedNetwork/scopeAssignments",
       "properties": {

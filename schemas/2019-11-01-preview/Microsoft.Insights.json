@@ -4,6 +4,45 @@
   "description": "Microsoft Insights Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "dataCollectionRules": {
       "description": "Microsoft.Insights/dataCollectionRules",
       "properties": {
@@ -78,7 +117,130 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "dataCollectionRuleAssociations": {
+      "description": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-11-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the association. The name is case insensitive.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DataCollectionRuleAssociationProxyOnlyResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Insights/dataCollectionRuleAssociations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "dataCollectionRuleAssociations": {
       "description": "Microsoft.Insights/dataCollectionRuleAssociations",
       "properties": {

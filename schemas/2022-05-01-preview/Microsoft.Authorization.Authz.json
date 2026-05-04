@@ -3,7 +3,171 @@
   "title": "Microsoft.Authorization",
   "description": "Microsoft Authorization Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "roleDefinitions": {
+      "description": "Microsoft.Authorization/roleDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The ID of the role definition.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role definition properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "roleDefinitions": {
+      "description": "Microsoft.Authorization/roleDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The ID of the role definition.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role definition properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "roleDefinitions": {
+      "description": "Microsoft.Authorization/roleDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The ID of the role definition.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role definition properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "roleDefinitions": {
+      "description": "Microsoft.Authorization/roleDefinitions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2022-05-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The ID of the role definition.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Role definition properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RoleDefinitionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Authorization/roleDefinitions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "roleDefinitions": {
       "description": "Microsoft.Authorization/roleDefinitions",
       "properties": {

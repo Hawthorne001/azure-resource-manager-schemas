@@ -3,7 +3,603 @@
   "title": "Microsoft.Help",
   "description": "Microsoft Help Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "diagnostics": {
+      "description": "Microsoft.Help/diagnostics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique resource name for insight resources",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Diagnostic Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiagnosticResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/diagnostics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "solutions": {
+      "description": "Microsoft.Help/solutions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Solution resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Solution result",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SolutionResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/solutions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "troubleshooters": {
+      "description": "Microsoft.Help/troubleshooters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Troubleshooter resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "([A-Za-z0-9]+(-[A-Za-z0-9]+)+)",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Troubleshooter Instance properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TroubleshooterInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/troubleshooters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "diagnostics": {
+      "description": "Microsoft.Help/diagnostics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique resource name for insight resources",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Diagnostic Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiagnosticResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/diagnostics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "solutions": {
+      "description": "Microsoft.Help/solutions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Solution resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Solution result",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SolutionResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/solutions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "troubleshooters": {
+      "description": "Microsoft.Help/troubleshooters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Troubleshooter resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "([A-Za-z0-9]+(-[A-Za-z0-9]+)+)",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Troubleshooter Instance properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TroubleshooterInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/troubleshooters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "diagnostics": {
+      "description": "Microsoft.Help/diagnostics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique resource name for insight resources",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Diagnostic Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiagnosticResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/diagnostics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "solutions": {
+      "description": "Microsoft.Help/solutions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Solution resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Solution result",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SolutionResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/solutions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "troubleshooters": {
+      "description": "Microsoft.Help/troubleshooters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Troubleshooter resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "([A-Za-z0-9]+(-[A-Za-z0-9]+)+)",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Troubleshooter Instance properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TroubleshooterInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/troubleshooters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "diagnostics": {
+      "description": "Microsoft.Help/diagnostics",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Unique resource name for insight resources",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Diagnostic Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DiagnosticResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/diagnostics"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "solutions": {
+      "description": "Microsoft.Help/solutions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Solution resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9-+@()_]+$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Solution result",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SolutionResourceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/solutions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "troubleshooters": {
+      "description": "Microsoft.Help/troubleshooters",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-09-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Troubleshooter resource Name.",
+          "oneOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "([A-Za-z0-9]+(-[A-Za-z0-9]+)+)",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Troubleshooter Instance properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TroubleshooterInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Help/troubleshooters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "diagnostics": {
       "description": "Microsoft.Help/diagnostics",
       "properties": {

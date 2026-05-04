@@ -3,7 +3,283 @@
   "title": "microsoft.insights",
   "description": "microsoft insights Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "diagnosticSettings": {
+      "description": "microsoft.insights/diagnosticSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-07-01"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "service"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The diagnostic settings for service.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceDiagnosticSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "microsoft.insights/diagnosticSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "diagnosticSettings": {
+      "description": "microsoft.insights/diagnosticSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-07-01"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "service"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The diagnostic settings for service.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceDiagnosticSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "microsoft.insights/diagnosticSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "diagnosticSettings": {
+      "description": "microsoft.insights/diagnosticSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-07-01"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "service"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The diagnostic settings for service.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceDiagnosticSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "microsoft.insights/diagnosticSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "diagnosticSettings": {
+      "description": "microsoft.insights/diagnosticSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2015-07-01"
+          ],
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "service"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The diagnostic settings for service.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ServiceDiagnosticSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "microsoft.insights/diagnosticSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "diagnosticSettings": {
       "description": "microsoft.insights/diagnosticSettings",
       "properties": {

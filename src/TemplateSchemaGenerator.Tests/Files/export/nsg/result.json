@@ -34,7 +34,6 @@
             {
               "name": "default-allow-rdp",
               "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_NSG_name'), 'default-allow-rdp')]",
-              "type": "Microsoft.Network/networkSecurityGroups/securityRules",
               "properties": {
                 "protocol": "Tcp",
                 "sourcePortRange": "*",
@@ -90,7 +89,6 @@
             {
               "name": "ipconfig1",
               "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_nic_2_name')), '/ipConfigurations/ipconfig1')]",
-              "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
               "properties": {
                 "privateIPAddress": "10.0.1.4",
                 "privateIPAllocationMethod": "Dynamic",
@@ -150,8 +148,7 @@
               "id": "[resourceId(concat('Microsoft.Network/', parameters('virtualNetworks_virtualNetwork_name'), 's/subnets'), parameters('virtualNetworks_virtualNetwork_name'), 'subnet-1')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "[concat('Microsoft.Network/', parameters('virtualNetworks_virtualNetwork_name'), 's/subnets')]"
+              }
             },
             {
               "name": "subnet-2",
@@ -161,8 +158,7 @@
                 "networkSecurityGroup": {
                   "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_subnet_2_nsg_name'))]"
                 }
-              },
-              "type": "[concat('Microsoft.Network/', parameters('virtualNetworks_virtualNetwork_name'), 's/subnets')]"
+              }
             }
           ],
           "virtualNetworkPeerings": [],
@@ -210,7 +206,6 @@
             {
               "name": "ipconfig1",
               "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_nic_1_name')), '/ipConfigurations/ipconfig1')]",
-              "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
               "properties": {
                 "privateIPAddress": "10.0.0.4",
                 "privateIPAllocationMethod": "Dynamic",

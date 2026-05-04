@@ -3,7 +3,171 @@
   "title": "Microsoft.CostManagement",
   "description": "Microsoft CostManagement Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "exports": {
+      "description": "Microsoft.CostManagement/exports",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Export Name.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the export.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.CostManagement/exports"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "exports": {
       "description": "Microsoft.CostManagement/exports",
       "properties": {

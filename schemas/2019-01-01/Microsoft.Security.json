@@ -3,7 +3,105 @@
   "title": "Microsoft.Security",
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
   "subscription_resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "settings": {
       "description": "Microsoft.Security/settings",
       "properties": {
@@ -43,7 +141,107 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "managementGroup_resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "advancedThreatProtectionSettings": {
+      "description": "Microsoft.Security/advancedThreatProtectionSettings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2019-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "current"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The Advanced Threat Protection settings.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdvancedThreatProtectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/advancedThreatProtectionSettings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "advancedThreatProtectionSettings": {
       "description": "Microsoft.Security/advancedThreatProtectionSettings",
       "properties": {

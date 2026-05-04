@@ -297,6 +297,10 @@
     "FileShareSnapshotProperties": {
       "description": "FileShareSnapshot properties",
       "properties": {
+        "initiatorId": {
+          "description": "The initiator of the FileShareSnapshot. This is a user-defined value.",
+          "type": "string"
+        },
         "metadata": {
           "description": "The metadata",
           "oneOf": [

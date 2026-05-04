@@ -22,9 +22,21 @@
                 "WDATP",
                 "WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW",
                 "WDATP_UNIFIED_SOLUTION",
-                "Sentinel"
+                "Sentinel",
+                "current"
               ],
               "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "type": "object"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -40,6 +52,7 @@
       },
       "required": [
         "name",
+        "properties",
         "apiVersion",
         "type"
       ],

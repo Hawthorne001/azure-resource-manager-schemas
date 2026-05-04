@@ -2354,42 +2354,6 @@
       },
       "type": "object"
     },
-    "CustomTopicConfig": {
-      "description": "Gets or sets the source to which filter applies.",
-      "properties": {
-        "blocking": {
-          "description": "If blocking would occur.",
-          "oneOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "source": {
-          "description": "Content source to apply the Content Filters.",
-          "oneOf": [
-            {
-              "enum": [
-                "Prompt",
-                "Completion"
-              ],
-              "type": "string"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "topicName": {
-          "description": "Name of RAI topic.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "DefenderForAISettingProperties": {
       "description": "The Defender for AI resource properties.",
       "properties": {
@@ -3179,20 +3143,6 @@
             {
               "items": {
                 "$ref": "#/definitions/CustomBlocklistConfig"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
-            }
-          ]
-        },
-        "customTopics": {
-          "description": "The list of custom rai topics.",
-          "oneOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/CustomTopicConfig"
               },
               "type": "array"
             },

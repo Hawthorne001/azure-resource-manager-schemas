@@ -4,6 +4,100 @@
   "description": "Microsoft LoadTestService Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "loadTestMappings": {
+      "description": "Microsoft.LoadTestService/loadTestMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "loadTestProfileMappings": {
+      "description": "Microsoft.LoadTestService/loadTestProfileMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Profile Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestProfileMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestProfileMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "loadTests": {
       "description": "Microsoft.LoadTestService/loadTests",
       "properties": {
@@ -74,7 +168,295 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "loadTestMappings": {
+      "description": "Microsoft.LoadTestService/loadTestMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "loadTestProfileMappings": {
+      "description": "Microsoft.LoadTestService/loadTestProfileMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Profile Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestProfileMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestProfileMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "loadTestMappings": {
+      "description": "Microsoft.LoadTestService/loadTestMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "loadTestProfileMappings": {
+      "description": "Microsoft.LoadTestService/loadTestProfileMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Profile Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestProfileMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestProfileMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "loadTestMappings": {
+      "description": "Microsoft.LoadTestService/loadTestMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "loadTestProfileMappings": {
+      "description": "Microsoft.LoadTestService/loadTestProfileMappings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-12-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Load Test Profile Mapping name",
+          "oneOf": [
+            {
+              "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LoadTestProfileMappingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.LoadTestService/loadTestProfileMappings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "loadTestMappings": {
       "description": "Microsoft.LoadTestService/loadTestMappings",
       "properties": {

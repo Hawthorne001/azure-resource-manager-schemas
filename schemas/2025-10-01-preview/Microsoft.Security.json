@@ -3,7 +3,171 @@
   "title": "Microsoft.Security",
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "unknown_resourceDefinitions": {
+  "resourceDefinitions": {
+    "pricings": {
+      "description": "Microsoft.Security/pricings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the pricing configuration",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Pricing data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PricingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/pricings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "pricings": {
+      "description": "Microsoft.Security/pricings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the pricing configuration",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Pricing data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PricingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/pricings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "pricings": {
+      "description": "Microsoft.Security/pricings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the pricing configuration",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Pricing data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PricingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/pricings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "pricings": {
+      "description": "Microsoft.Security/pricings",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-10-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the pricing configuration",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Pricing data",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PricingProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/pricings"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "pricings": {
       "description": "Microsoft.Security/pricings",
       "properties": {

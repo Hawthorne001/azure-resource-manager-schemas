@@ -3,6 +3,88 @@
   "title": "Microsoft.Quota",
   "description": "Microsoft Quota Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "quotas": {
+      "description": "Microsoft.Quota/quotas",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- SKU or TotalLowPriorityCores for Microsoft.MachineLearningServices\r\n For Microsoft.Network PublicIPAddresses.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Quota properties for the specified resource, based on the API called, Quotas or Usages.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Quota/quotas"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "subscription_resourceDefinitions": {
+    "quotas": {
+      "description": "Microsoft.Quota/quotas",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- SKU or TotalLowPriorityCores for Microsoft.MachineLearningServices\r\n For Microsoft.Network PublicIPAddresses.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Quota properties for the specified resource, based on the API called, Quotas or Usages.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Quota/quotas"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
   "managementGroup_resourceDefinitions": {
     "groupQuotas": {
       "description": "Microsoft.Quota/groupQuotas",
@@ -184,6 +266,86 @@
         "type"
       ],
       "type": "object"
+    },
+    "quotas": {
+      "description": "Microsoft.Quota/quotas",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- SKU or TotalLowPriorityCores for Microsoft.MachineLearningServices\r\n For Microsoft.Network PublicIPAddresses.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Quota properties for the specified resource, based on the API called, Quotas or Usages.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Quota/quotas"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "quotas": {
+      "description": "Microsoft.Quota/quotas",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-06-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name for a given resource provider. For example:\r\n- SKU name for Microsoft.Compute\r\n- SKU or TotalLowPriorityCores for Microsoft.MachineLearningServices\r\n For Microsoft.Network PublicIPAddresses.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Quota properties for the specified resource, based on the API called, Quotas or Usages.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/QuotaProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Quota/quotas"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
     }
   },
   "extension_resourceDefinitions": {
@@ -234,9 +396,7 @@
         "type"
       ],
       "type": "object"
-    }
-  },
-  "unknown_resourceDefinitions": {
+    },
     "quotas": {
       "description": "Microsoft.Quota/quotas",
       "properties": {

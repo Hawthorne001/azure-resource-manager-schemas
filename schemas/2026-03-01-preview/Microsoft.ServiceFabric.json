@@ -85,7 +85,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -114,7 +114,7 @@
           "type": "array"
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -153,7 +153,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -172,7 +172,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -214,7 +214,7 @@
           "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedServiceIdentity"
+              "$ref": "#/definitions/ManagedIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -222,7 +222,7 @@
           ]
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -251,7 +251,7 @@
           "type": "array"
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -290,7 +290,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -309,7 +309,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -1528,18 +1528,18 @@
       ],
       "type": "object"
     },
-    "ManagedServiceIdentity": {
-      "description": "Managed service identity (system assigned and/or user assigned identities)",
+    "ManagedIdentity": {
+      "description": "Describes the managed identities for an Azure resource.",
       "properties": {
         "type": {
-          "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
+          "description": "The type of managed identity for the resource.",
           "oneOf": [
             {
               "enum": [
-                "None",
                 "SystemAssigned",
                 "UserAssigned",
-                "SystemAssigned,UserAssigned"
+                "SystemAssigned, UserAssigned",
+                "None"
               ],
               "type": "string"
             },
@@ -1549,7 +1549,7 @@
           ]
         },
         "userAssignedIdentities": {
-          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
+          "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:\n'/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -1564,9 +1564,6 @@
           ]
         }
       },
-      "required": [
-        "type"
-      ],
       "type": "object"
     },
     "NodeTypeDescription": {
@@ -2030,7 +2027,7 @@
           ]
         },
         "serviceName": {
-          "description": "The name of the service that the correlation relationship is established with.",
+          "description": "The full name of the service with 'fabric:' URI scheme.",
           "type": "string"
         }
       },
@@ -2330,6 +2327,7 @@
           "description": "The maximum allowed percentage of services health degradation allowed during cluster upgrades.\nThe delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.\nThe check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.",
           "oneOf": [
             {
+              "default": 0,
               "maximum": 100,
               "minimum": 0,
               "type": "integer"
@@ -2349,6 +2347,7 @@
           "description": "The maximum percentage of services allowed to be unhealthy before your application is considered in error.",
           "oneOf": [
             {
+              "default": 0,
               "maximum": 100,
               "minimum": 0,
               "type": "integer"
@@ -2408,7 +2407,7 @@
       "type": "object"
     },
     "UserAssignedIdentity": {
-      "description": "User assigned identity properties",
+      "description": "Describes a user assigned identity.",
       "properties": {},
       "type": "object"
     },
@@ -2422,7 +2421,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -2441,7 +2440,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -2480,7 +2479,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -2499,7 +2498,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -2541,7 +2540,7 @@
           "description": "The managed service identities assigned to this resource.",
           "oneOf": [
             {
-              "$ref": "#/definitions/ManagedServiceIdentity"
+              "$ref": "#/definitions/ManagedIdentity"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -2549,7 +2548,7 @@
           ]
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -2568,7 +2567,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -2607,7 +2606,7 @@
           "type": "string"
         },
         "location": {
-          "description": "The geo-location where the resource lives",
+          "description": "It will be deprecated in New API, resource location depends on the parent resource.",
           "type": "string"
         },
         "name": {
@@ -2626,7 +2625,7 @@
           ]
         },
         "tags": {
-          "description": "Resource tags.",
+          "description": "Azure resource tags.",
           "oneOf": [
             {
               "additionalProperties": {

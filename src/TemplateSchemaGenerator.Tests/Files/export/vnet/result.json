@@ -73,7 +73,6 @@
             {
               "name": "AllowAnyCustom8080Inbound",
               "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_my_second_nsg_name'), 'AllowAnyCustom8080Inbound')]",
-              "type": "Microsoft.Network/networkSecurityGroups/securityRules",
               "properties": {
                 "protocol": "*",
                 "sourcePortRange": "*",
@@ -104,8 +103,7 @@
               "properties": {
                 "addressPrefix": "10.0.0.0/24",
                 "nextHopType": "None"
-              },
-              "type": "Microsoft.Network/routeTables/routes"
+              }
             }
           ]
         }
@@ -131,32 +129,28 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_aci_vnet_name'), 'default')]",
               "properties": {
                 "addressPrefix": "172.18.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             },
             {
               "name": "aci",
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_aci_vnet_name'), 'aci')]",
               "properties": {
                 "addressPrefix": "172.18.1.0/28"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             },
             {
               "name": "shared",
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_aci_vnet_name'), 'shared')]",
               "properties": {
                 "addressPrefix": "172.18.1.16/28"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             },
             {
               "name": "shared2",
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_aci_vnet_name'), 'shared2')]",
               "properties": {
                 "addressPrefix": "172.18.2.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -181,8 +175,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_cuseuap_vnet_name'), 'aci-vnet')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -207,16 +200,14 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnet_0_name'), 'foosubnet-0')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             },
             {
               "name": "test",
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnet_0_name'), 'test')]",
               "properties": {
                 "addressPrefix": "10.0.1.0/29"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -241,8 +232,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnet_1_name'), 'foosubnet-1')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -267,8 +257,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnetba_0_name'), 'foosubnetba-0')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -293,8 +282,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnetba_1_name'), 'foosubnetba-1')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -319,8 +307,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnetbar_name'), 'foosubnetbar')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -345,8 +332,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnetbaz_0_name'), 'foosubnetbaz-0')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -371,8 +357,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_foovnetbaz_1_name'), 'foosubnetbaz-1')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -397,8 +382,7 @@
               "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_VNet1_name'), 'Subnet1')]",
               "properties": {
                 "addressPrefix": "10.0.0.0/24"
-              },
-              "type": "Microsoft.Network/virtualNetworks/subnets"
+              }
             }
           ]
         }
@@ -604,7 +588,6 @@
             {
               "name": "Ipv4config",
               "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_my_nic_name')), '/ipConfigurations/Ipv4config')]",
-              "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
               "properties": {
                 "privateIPAddress": "10.0.0.4",
                 "privateIPAllocationMethod": "Dynamic",

@@ -477,6 +477,53 @@
       ],
       "type": "object"
     },
+    "schemaReferences": {
+      "description": "Microsoft.Edge/schemaReferences",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the SchemaReference",
+          "oneOf": [
+            {
+              "pattern": "^default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaReferenceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Edge/schemaReferences"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "schemas": {
       "description": "Microsoft.Edge/schemas",
       "properties": {
@@ -1058,7 +1105,154 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "schemaReferences": {
+      "description": "Microsoft.Edge/schemaReferences",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the SchemaReference",
+          "oneOf": [
+            {
+              "pattern": "^default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaReferenceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Edge/schemaReferences"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "schemaReferences": {
+      "description": "Microsoft.Edge/schemaReferences",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the SchemaReference",
+          "oneOf": [
+            {
+              "pattern": "^default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaReferenceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Edge/schemaReferences"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "schemaReferences": {
+      "description": "Microsoft.Edge/schemaReferences",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the SchemaReference",
+          "oneOf": [
+            {
+              "pattern": "^default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchemaReferenceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Edge/schemaReferences"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "schemaReferences": {
       "description": "Microsoft.Edge/schemaReferences",
       "properties": {

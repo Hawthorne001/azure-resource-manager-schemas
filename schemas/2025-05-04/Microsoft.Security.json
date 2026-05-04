@@ -3,6 +3,47 @@
   "title": "Microsoft.Security",
   "description": "Microsoft Security Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "resourceDefinitions": {
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-04"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Assessment Key - Unique key for the assessment type",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Describes properties of an assessment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/assessments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
   "subscription_resourceDefinitions": {
     "assessmentMetadata": {
       "description": "Microsoft.Security/assessmentMetadata",
@@ -42,11 +83,9 @@
         "type"
       ],
       "type": "object"
-    }
-  },
-  "tenant_resourceDefinitions": {
-    "assessmentMetadata": {
-      "description": "Microsoft.Security/assessmentMetadata",
+    },
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
       "properties": {
         "apiVersion": {
           "enum": [
@@ -59,10 +98,10 @@
           "type": "string"
         },
         "properties": {
-          "description": "Describes properties of an assessment metadata response.",
+          "description": "Describes properties of an assessment.",
           "oneOf": [
             {
-              "$ref": "#/definitions/SecurityAssessmentMetadataPropertiesResponse"
+              "$ref": "#/definitions/SecurityAssessmentProperties"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -71,7 +110,7 @@
         },
         "type": {
           "enum": [
-            "Microsoft.Security/assessmentMetadata"
+            "Microsoft.Security/assessments"
           ],
           "type": "string"
         }
@@ -85,7 +124,89 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "managementGroup_resourceDefinitions": {
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-04"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Assessment Key - Unique key for the assessment type",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Describes properties of an assessment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/assessments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "assessments": {
+      "description": "Microsoft.Security/assessments",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2025-05-04"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The Assessment Key - Unique key for the assessment type",
+          "type": "string"
+        },
+        "properties": {
+          "description": "Describes properties of an assessment.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SecurityAssessmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.Security/assessments"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "assessments": {
       "description": "Microsoft.Security/assessments",
       "properties": {
@@ -160,29 +281,7 @@
       ],
       "type": "object"
     },
-    "Components1Uu4J47SchemasSecurityassessmentpropertiesbasePropertiesRiskPropertiesPathsItemsPropertiesEdgesItems": {
-      "properties": {
-        "id": {
-          "description": "Edge identifier",
-          "type": "string"
-        },
-        "sourceId": {
-          "description": "Source node identifier",
-          "type": "string"
-        },
-        "targetId": {
-          "description": "Target node identifier",
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "targetId",
-        "sourceId"
-      ],
-      "type": "object"
-    },
-    "ResourceDetails": {
+    "CommonResourceDetails": {
       "description": "Details of the resource that was assessed",
       "oneOf": [
         {
@@ -299,7 +398,7 @@
           ]
         },
         "categories": {
-          "description": "Array of categories",
+          "description": "Array of Categories",
           "oneOf": [
             {
               "items": {
@@ -389,7 +488,7 @@
           ]
         },
         "threats": {
-          "description": "Array of threats",
+          "description": "Array of Threats",
           "oneOf": [
             {
               "items": {
@@ -464,7 +563,7 @@
           ]
         },
         "categories": {
-          "description": "Array of categories",
+          "description": "Array of Categories",
           "oneOf": [
             {
               "items": {
@@ -575,7 +674,7 @@
           ]
         },
         "tactics": {
-          "description": "Array of tactics",
+          "description": "Array of Tactics",
           "oneOf": [
             {
               "items": {
@@ -605,7 +704,7 @@
           ]
         },
         "techniques": {
-          "description": "Array of techniques",
+          "description": "Array of Techniques",
           "oneOf": [
             {
               "items": {
@@ -725,7 +824,7 @@
           ]
         },
         "threats": {
-          "description": "Array of threats",
+          "description": "Array of Threats",
           "oneOf": [
             {
               "items": {
@@ -864,7 +963,7 @@
           "description": "Details of the resource that was assessed",
           "oneOf": [
             {
-              "$ref": "#/definitions/ResourceDetails"
+              "$ref": "#/definitions/CommonResourceDetails"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
@@ -947,7 +1046,7 @@
           ]
         },
         "paths": {
-          "description": "Array of SecurityAssessmentPropertiesBase-risk-pathsItem",
+          "description": "Array of SecurityAssessmentPropertiesBaseRiskPathsItem",
           "oneOf": [
             {
               "items": {
@@ -984,7 +1083,7 @@
           "oneOf": [
             {
               "items": {
-                "$ref": "#/definitions/Components1Uu4J47SchemasSecurityassessmentpropertiesbasePropertiesRiskPropertiesPathsItemsPropertiesEdgesItems"
+                "$ref": "#/definitions/SecurityAssessmentPropertiesBaseRiskPathsItemEdgeItem"
               },
               "type": "array"
             },
@@ -998,11 +1097,11 @@
           "type": "string"
         },
         "nodes": {
-          "description": "Array of SecurityAssessmentPropertiesBase-risk-paths-properties-itemsItem",
+          "description": "Array of SecurityAssessmentPropertiesBaseRiskPathsItemNodesItem",
           "oneOf": [
             {
               "items": {
-                "$ref": "#/definitions/SecurityAssessmentPropertiesBaseRiskPathsPropertiesItemsItem"
+                "$ref": "#/definitions/SecurityAssessmentPropertiesBaseRiskPathsItemNodesItem"
               },
               "type": "array"
             },
@@ -1014,7 +1113,29 @@
       },
       "type": "object"
     },
-    "SecurityAssessmentPropertiesBaseRiskPathsPropertiesItemsItem": {
+    "SecurityAssessmentPropertiesBaseRiskPathsItemEdgeItem": {
+      "properties": {
+        "id": {
+          "description": "Edge identifier",
+          "type": "string"
+        },
+        "sourceId": {
+          "description": "Source node identifier",
+          "type": "string"
+        },
+        "targetId": {
+          "description": "Target node identifier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "targetId",
+        "sourceId"
+      ],
+      "type": "object"
+    },
+    "SecurityAssessmentPropertiesBaseRiskPathsItemNodesItem": {
       "properties": {
         "id": {
           "description": "Node identifier",

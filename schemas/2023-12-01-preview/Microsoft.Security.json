@@ -22,7 +22,7 @@
           "type": "string"
         },
         "location": {
-          "description": "Location where the resource is stored",
+          "description": "The geo-location where the resource lives",
           "type": "string"
         },
         "name": {
@@ -41,7 +41,7 @@
           ]
         },
         "tags": {
-          "description": "A list of key value pairs that describe the resource.",
+          "description": "Resource tags.",
           "oneOf": [
             {
               "additionalProperties": {
@@ -270,7 +270,7 @@
       "type": "object"
     },
     "AutomationRuleSet": {
-      "description": "A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions. ",
+      "description": "A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.",
       "properties": {
         "rules": {
           "description": "Array of AutomationTriggeringRule",
@@ -526,7 +526,7 @@
       "description": "Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.",
       "properties": {
         "roles": {
-          "description": "Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: ",
+          "description": "Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:",
           "oneOf": [
             {
               "items": {
@@ -550,6 +550,10 @@
           "oneOf": [
             {
               "enum": [
+                "Passed",
+                "Failed",
+                "Skipped",
+                "Unsupported",
                 "On",
                 "Off"
               ],

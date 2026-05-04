@@ -4,6 +4,84 @@
   "description": "Microsoft ServiceLinker Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "dryruns": {
+      "description": "Microsoft.ServiceLinker/dryruns",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of dryrun.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the dryrun job.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DryrunProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/dryruns"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "locations_connectors": {
       "description": "Microsoft.ServiceLinker/locations/connectors",
       "properties": {
@@ -83,7 +161,247 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "dryruns": {
+      "description": "Microsoft.ServiceLinker/dryruns",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of dryrun.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the dryrun job.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DryrunProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/dryruns"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "dryruns": {
+      "description": "Microsoft.ServiceLinker/dryruns",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of dryrun.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the dryrun job.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DryrunProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/dryruns"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "dryruns": {
+      "description": "Microsoft.ServiceLinker/dryruns",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of dryrun.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the dryrun job.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/DryrunProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/dryruns"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "linkers": {
+      "description": "Microsoft.ServiceLinker/linkers",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2023-04-01-preview"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "The name Linker resource.",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The properties of the Linker.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/LinkerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ServiceLinker/linkers"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "dryruns": {
       "description": "Microsoft.ServiceLinker/dryruns",
       "properties": {

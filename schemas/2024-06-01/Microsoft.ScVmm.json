@@ -162,6 +162,121 @@
       ],
       "type": "object"
     },
+    "virtualMachineInstances": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Gets or sets the extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/virtualMachineInstances_guestAgents_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualMachineInstances_guestAgents": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances/guestAgents",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances/guestAgents"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "virtualMachineTemplates": {
       "description": "Microsoft.ScVmm/virtualMachineTemplates",
       "properties": {
@@ -461,7 +576,358 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "virtualMachineInstances": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Gets or sets the extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/virtualMachineInstances_guestAgents_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualMachineInstances_guestAgents": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances/guestAgents",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances/guestAgents"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "virtualMachineInstances": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Gets or sets the extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/virtualMachineInstances_guestAgents_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualMachineInstances_guestAgents": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances/guestAgents",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances/guestAgents"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "virtualMachineInstances": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Gets or sets the extended location.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/VirtualMachineInstanceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/virtualMachineInstances_guestAgents_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "virtualMachineInstances_guestAgents": {
+      "description": "Microsoft.ScVmm/virtualMachineInstances/guestAgents",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-06-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "The resource-specific properties for this resource.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GuestAgentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.ScVmm/virtualMachineInstances/guestAgents"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "virtualMachineInstances": {
       "description": "Microsoft.ScVmm/virtualMachineInstances",
       "properties": {

@@ -4,6 +4,293 @@
   "description": "Microsoft HybridContainerService Resource Types",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "resourceDefinitions": {
+    "kubernetesVersions": {
+      "description": "Microsoft.HybridContainerService/kubernetesVersions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/kubernetesVersions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the provisioned cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProvisionedClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_agentPools_childResource"
+              },
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_hybridIdentityMetadata_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_agentPools": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Parameter for the name of the agent pool in the provisioned cluster.",
+          "oneOf": [
+            {
+              "maxLength": 12,
+              "minLength": 3,
+              "pattern": "^[a-z][a-z0-9]{2,11}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the agent pool resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_hybridIdentityMetadata": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridIdentityMetadataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "skus": {
+      "description": "Microsoft.HybridContainerService/skus",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/skus"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
     "virtualNetworks": {
       "description": "Microsoft.HybridContainerService/virtualNetworks",
       "properties": {
@@ -84,7 +371,874 @@
       "type": "object"
     }
   },
-  "unknown_resourceDefinitions": {
+  "subscription_resourceDefinitions": {
+    "kubernetesVersions": {
+      "description": "Microsoft.HybridContainerService/kubernetesVersions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/kubernetesVersions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the provisioned cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProvisionedClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_agentPools_childResource"
+              },
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_hybridIdentityMetadata_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_agentPools": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Parameter for the name of the agent pool in the provisioned cluster.",
+          "oneOf": [
+            {
+              "maxLength": 12,
+              "minLength": 3,
+              "pattern": "^[a-z][a-z0-9]{2,11}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the agent pool resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_hybridIdentityMetadata": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridIdentityMetadataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "skus": {
+      "description": "Microsoft.HybridContainerService/skus",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/skus"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "managementGroup_resourceDefinitions": {
+    "kubernetesVersions": {
+      "description": "Microsoft.HybridContainerService/kubernetesVersions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/kubernetesVersions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the provisioned cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProvisionedClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_agentPools_childResource"
+              },
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_hybridIdentityMetadata_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_agentPools": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Parameter for the name of the agent pool in the provisioned cluster.",
+          "oneOf": [
+            {
+              "maxLength": 12,
+              "minLength": 3,
+              "pattern": "^[a-z][a-z0-9]{2,11}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the agent pool resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_hybridIdentityMetadata": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridIdentityMetadataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "skus": {
+      "description": "Microsoft.HybridContainerService/skus",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/skus"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "tenant_resourceDefinitions": {
+    "kubernetesVersions": {
+      "description": "Microsoft.HybridContainerService/kubernetesVersions",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/kubernetesVersions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the provisioned cluster.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProvisionedClusterProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_agentPools_childResource"
+              },
+              {
+                "$ref": "#/definitions/provisionedClusterInstances_hybridIdentityMetadata_childResource"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_agentPools": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "description": "Parameter for the name of the agent pool in the provisioned cluster.",
+          "oneOf": [
+            {
+              "maxLength": 12,
+              "minLength": 3,
+              "pattern": "^[a-z][a-z0-9]{2,11}$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Properties of the agent pool resource",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AgentPoolProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Resource tags",
+          "oneOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {},
+              "type": "object"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "provisionedClusterInstances_hybridIdentityMetadata": {
+      "description": "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "pattern": "^.*/default$",
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "description": "Resource properties.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/HybridIdentityMetadataProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/provisionedClusterInstances/hybridIdentityMetadata"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "properties",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    },
+    "skus": {
+      "description": "Microsoft.HybridContainerService/skus",
+      "properties": {
+        "apiVersion": {
+          "enum": [
+            "2024-01-01"
+          ],
+          "type": "string"
+        },
+        "extendedLocation": {
+          "description": "Extended location pointing to the underlying infrastructure",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ExtendedLocation"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "enum": [
+                "default"
+              ],
+              "type": "string"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "type": {
+          "enum": [
+            "Microsoft.HybridContainerService/skus"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "apiVersion",
+        "type"
+      ],
+      "type": "object"
+    }
+  },
+  "extension_resourceDefinitions": {
     "kubernetesVersions": {
       "description": "Microsoft.HybridContainerService/kubernetesVersions",
       "properties": {

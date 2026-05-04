@@ -14,7 +14,7 @@
           "type": "string"
         },
         "name": {
-          "description": "name of the securityOperator",
+          "description": "Name of the security operator.",
           "oneOf": [
             {
               "maxLength": 63,
